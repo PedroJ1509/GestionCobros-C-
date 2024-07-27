@@ -1,0 +1,201 @@
+﻿@using Microsoft.AspNetCore.Http;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JaMPe Software</title>
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="assets/dist/img/ico/ico.ico" type="image/x-icon">
+    <!-- Start Global Mandatory Style
+       =====================================================================-->
+    <!-- lobicard tather css -->
+    <link rel="stylesheet" href="assets/plugins/lobipanel/css/tether.min.css" />
+    <!-- Bootstrap -->
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- lobicard tather css -->
+    <link href="~/assets/plugins/bootstrap-social/bootstrap-social.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/plugins/lobipanel/css/jquery-ui.min.css" />
+    <!-- lobicard min css -->
+    <link href="assets/plugins/lobipanel/css/lobicard.min.css" rel="stylesheet" />
+    <!-- lobicard github css -->
+    <link href="assets/plugins/lobipanel/css/github.css" rel="stylesheet" />
+    <!-- Pace css <link href="assets/plugins/pace/flash.css" rel="stylesheet" />-->
+    
+    <!-- Font Awesome -->
+    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Pe-icon -->
+    <link href="assets/pe-icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <!-- Themify icons -->
+    <link href="assets/themify-icons/themify-icons.css" rel="stylesheet" />
+    <!-- End Global Mandatory Style
+       =====================================================================-->
+    <!-- Start page Label Plugins
+       =====================================================================-->
+    <!-- Emojionearea -->
+    <link href="assets/plugins/emojionearea/emojionearea.min.css" rel="stylesheet" />
+    <!-- Monthly css -->
+    <link href="assets/plugins/monthly/monthly.css" rel="stylesheet" />
+    <!--<link href="~/assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" />-->
+    <link href="~/assets/plugins/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet" />
+    <link href="~/assets/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- End page Label Plugins
+           =====================================================================-->
+    <!-- Start Theme Layout Style
+       =====================================================================-->
+    @await RenderSectionAsync("Style", required: false)
+    <!-- Theme style -->
+    <link asp-append-version="true" href="assets/dist/css/stylecrm.css" rel="stylesheet" />
+    <link asp-append-version="true" href="assets/dist/css/mjpstyle.css" rel="stylesheet" />
+
+    <!-- jQuery-->
+    <script src="assets/plugins/jQuery/jquery-1.12.4.min.js"></script>
+    <!--<script src="~/assets/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="~/assets/plugins/sweetalert2/dist/sweetalert2.min.js"></script>-->
+    <script src="~/assets/plugins/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script asp-append-version="true" src="~/assets/dist/js/funcionesGenerales.js"></script>
+    <!-- Theme style rtl -->
+    <!--<link href="assets/dist/css/stylecrm-rtl.css" rel="stylesheet" />-->
+    <!-- End Theme Layout Style
+       =====================================================================-->
+</head>
+<body class="hold-transition sidebar-mini">
+    <!--preloader<div id="preloader">
+        <div id="status"></div>
+    </div>-->
+    
+    <!-- Site wrapper -->
+    <div class="wrapper">
+        <header class="main-header">
+            <a href="index.html" class="logo">
+                <!-- Logo -->
+                <span class="logo-mini">
+                    <img src="assets/dist/img/mini-logo.png?1" alt="">
+                </span>
+                <span class="logo-lg">
+                    <img src="assets/dist/img/logo.png?1.0" alt="">
+                </span>
+            </a>
+            <!-- Header Navbar -->
+            <nav class="navbar navbar-expand py-0">
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <!-- Sidebar toggle button-->
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="pe-7s-angle-left-circle"></span>
+                </a>
+
+                <div class="collapse navbar-collapse navbar-custom-menu">
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Help -->
+                        <li class="nav-item dropdown  dropdown-help">
+                            <a class="nav-link hidden_hidden" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="pe-7s-settings"></i>
+                            </a>
+
+                            <div class="dropdown-menu drop_down">
+                                <div class="menus">
+                                    <a class="dropdown-item" href="#"> <i class="fa fa-line-chart"></i> Networking</a>
+                                    <a class="dropdown-item" href="#"><i class="fa fa fa-bullhorn"></i> Lan settings</a>
+                                    <a class="dropdown-item" href="#"><i class="fa fa-bar-chart"></i> Settings</a>
+                                    <a class="dropdown-item" href="#"><i class="fa fa-wifi"></i> wifi</a>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- User -->
+                        <li class="nav-item dropdown dropdown-user">
+                            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/dist/img/avatar5.png" class="rounded-circle" width="50" height="50" alt="user">
+                            </a>
+
+                            <div class="dropdown-menu drop_down">
+                                <div class="menus">
+                                    <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Perfil</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="logout"><i class="fa fa-sign-out"></i> Salir</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- =============================================== -->
+        <!-- Left side column. contains the sidebar -->
+        <aside class="main-sidebar">
+            @Html.Partial("_menuPrincipal")
+        </aside>
+        <!-- =============================================== -->
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            @RenderBody()
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+            <strong>Copyright &copy; 2023 <a href="#">JaMPe Software</a>.</strong> All rights reserved.
+        </footer>
+    </div>
+    <!-- /.wrapper -->
+    <!-- Start Core Plugins
+       =====================================================================-->
+    <!-- <script src="~/assets/plugins/jQuery/jquery-3.4.1.min.js"></script>-->
+    <!-- Bootstrap proper -->
+
+    <script src="assets/dist/js/moment.js"></script>
+    <script src="assets/bootstrap/js/popper.min.js"></script>
+    <!-- lobicard ui min js -->
+    <script src="assets/plugins/lobipanel/js/jquery-ui.min.js"></script>
+    <!-- lobicard ui touch-punch-improved js -->
+    <script src="assets/plugins/lobipanel/js/jquery.ui.touch-punch-improved.js"></script>
+    <!-- lobicard tether min js -->
+    <script src="assets/plugins/lobipanel/js/tether.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- lobicard js -->
+    <script src="assets/plugins/lobipanel/js/lobicard.js"></script>
+    <!-- lobicard highlight js -->
+    <script src="assets/plugins/lobipanel/js/highlight.js"></script>
+    <!-- Pace js -->
+    <script src="assets/plugins/pace/pace.min.js"></script>
+    <!-- NIceScroll -->
+    <script src="assets/plugins/slimScroll/jquery.nicescroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="assets/plugins/fastclick/fastclick.min.js"></script>
+    <!-- End Core Plugins
+       =====================================================================-->
+    <!-- Start Page Lavel Plugins
+       =====================================================================-->
+    <!-- ChartJs JavaScript -->
+    <script src="assets/plugins/chartJs/Chart.min.js"></script>
+    <!-- Counter js -->
+    <script src="assets/plugins/counterup/waypoints.js"></script>
+    <script src="assets/plugins/counterup/jquery.counterup.min.js"></script>
+    <!-- Monthly js -->
+    <script src="assets/plugins/monthly/monthly.js"></script>
+    <script src="~/assets/dist/js/select2.js"></script>
+    <!-- CRMadmin frame -->
+    <script src="assets/dist/js/custom.js"></script>
+    <!-- Dashboard js -->
+    <script src="assets/dist/js/dashboard.js"></script>
+
+@* 
+
+   *@
+
+    <!-- End Page Lavel Plugins
+       =====================================================================-->
+    <!-- Start Theme label Script
+       =====================================================================-->
+    <!-- End Theme label Script
+       =====================================================================-->
+
+    <script>
+        
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

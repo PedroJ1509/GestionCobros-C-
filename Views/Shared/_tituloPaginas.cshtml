@@ -1,0 +1,16 @@
+﻿@inject GestionEmpContext context
+
+@{
+    var identity = User.Claims.Where(x => x.Type == "GeneralNombreEmpresa").FirstOrDefault();
+    var nombreEmpresa = identity.Value;
+}
+<section class="content-header">
+    <div class="header-icon">
+        <i class="fa fa-map-signs"></i>
+    </div>
+    <div class="header-title">
+        <h1>@ViewData["titulo"]</h1>
+        <small>@ViewData["titulo-info"]</small>
+        <h5 class="nombre-empresa"><i class="hvr-buzz-out fa fa-university"></i>@nombreEmpresa.ToUpper()</h5>
+    </div>
+</section>

@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\assets\dist\js\analisiscosto.js" />
+    <Content Remove="wwwroot\assets\dist\js\consInventario.js" />
+    <Content Remove="wwwroot\assets\dist\js\unidad.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\assets\dist\js\analisiscosto.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\dist\js\consInventario.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\dist\js\unidad.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EfCore.SqlServer2008Query" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.22" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite" Version="6.0.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.22">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Rotativa.AspNetCore" Version="1.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Cliente\" />
+    <Folder Include="wwwroot\assets\dist\img\Articulos\" />
+    <Folder Include="wwwroot\assets\plugins\New folder\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\dist\fonts\dropify.svg" />
+    <None Include="wwwroot\assets\dist\js\analisiscosto.js" />
+    <None Include="wwwroot\assets\dist\js\consInventario.js" />
+    <None Include="wwwroot\assets\dist\js\unidad.js" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,379 @@
+﻿@{
+    ViewData["titulo"] = "CheckIn / ";
+    ViewData["titulo-info"] = "Resumen datos principales";
+}
+
+
+<!-- Main content -->
+<section class="content">
+    <div class="">
+
+        <div class="card lobicard lobicard-custom-control" data-sortable="true">
+            <div class="card-header">
+                <div class="card-title custom_title">
+                    <a href="#">
+                        <h4>CheckIn / CheckOut</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                        <form class="form-horizontal">
+                            <input type="text" id="txtReservaId" value="0" placeholder="" class="oculto">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 p-0 m-b-10">
+                                    <label class="control-label col-xs-6 col-sm-6 col-md-12 col-lg-12 col-xl-12">Planta:</label>
+                                    <div class="col-xs-6 col-sm-6 col-md-12 col-lg-12 col-xl-12">
+                                        <select onchange="checkin.BuscarHabitaciones()" data-sigfocus="btnGuardar" id="cmbPlanta" class="form-control">
+                                            <option value="0">Todas</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="content-habitaciones" class="row">
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="modal fade" data-backdrop="static" id="checkin-checkout" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fa fa-calendar-plus-o m-r-5"></i> CheckIn / CheckOut</h3>
+                    <button type="button" data-dismiss="modal" class="btn btn-labeled btn-success btn-sm"><span class="btn-label"><i class="fa fa-close"></i></span>Cerrar</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="form-horizontal">
+                                <input type="text" id="txtReservaId" value="0" placeholder="" class="oculto">
+                                <input type="text" id="txtReservaDetId" value="0" placeholder="" class="oculto">
+                                <input type="text" id="txtHabitacionId" value="0" placeholder="" class="oculto">
+                                <input type="text" id="txtTipoHabitacionId" value="0" placeholder="" class="oculto">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="alert alert-sm alert-success alert-dismissible text-center" role="alert">
+                                            <i class="fa fa-bed"></i><strong id="lblHabitacionDesc">EL RELOJ</strong>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                        <div class="row form-group">
+                                            <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">Fecha:</label>
+                                            <div class="col-xs-6 col-sm-6 col-md-8 col-lg-8 col-xl-8 p-0">
+                                                <input type="text" data-sigfocus="txtFechaHasta" id="txtFechaDesde" placeholder="" class="form-control">
+                                                <div class="invalid-feedback">
+                                                    <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                        <div class="row form-group">
+                                            <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">Hasta:</label>
+                                            <div class="col-xs-6 col-sm-6 col-md-8 col-lg-8 col-xl-8 p-0">
+                                                <input type="text" data-sigfocus="cmbCliente" id="txtFechaHasta" placeholder="" class="form-control">
+                                                <div class="invalid-feedback">
+                                                    <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                        <div class="row form-group">
+                                            <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">Cliente:</label>
+                                            <div class="col-xs-6 col-sm-6 col-md-8 col-lg-8 col-xl-8 p-0">
+                                                <select onchange="checkin.BuscarTarifa()" data-sigfocus="cmbPlan" id="cmbCliente" class="form-control">
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                        <div class="row form-group">
+                                            <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">Plan:</label>
+                                            <div class="col-xs-6 col-sm-6 col-md-8 col-lg-8 col-xl-8 p-0">
+                                                <select onchange="checkin.BuscarTarifa()" data-sigfocus="cmbTipoHospedaje" id="cmbPlan" class="form-control">
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                        <div class="row form-group">
+                                            <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">Tipo Hospedaje:</label>
+                                            <div class="col-xs-6 col-sm-6 col-md-8 col-lg-8 col-xl-8 p-0">
+                                                <select onchange="checkin.BuscarTarifa()" data-sigfocus="txtPrecio" id="cmbTipoHospedaje" class="form-control">
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                        <div class="row form-group">
+                                            <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">Precio:</label>
+                                            <div class="col-xs-6 col-sm-6 col-md-8 col-lg-8 col-xl-8 p-0">
+                                                <input type="text" data-sigfocus="btnGuardar" placeholder="" readonly maxlength="13" id="txtPrecio" class="form-control">
+                                                <div class="invalid-feedback">
+                                                    <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div id="content-huesped" class="row oculto">
+                                    <div class="col-lg-12 pinpin">
+                                        <div class="card" data-sortable="true">
+                                            <div class="card-header">
+                                                <div class="card-title custom_title m-0">
+                                                    <div class="btn-group buttonexport d-flex" role="group">
+                                                        <h4>Huéspedes</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="table-responsive">
+                                                        <table id="dataTable-huesped" class="table display table-bordered table-striped table-hover no-wrap">
+                                                            <thead class="back_table_color">
+                                                                <tr>
+                                                                    <th>No.</th>
+                                                                    <th>Nombre</th>
+                                                                    <th>Sexo</th>
+                                                                    <th>Edad</th>
+                                                                    <th>Teléfono</th>
+                                                                    <th>Email</th>
+                                                                    <th></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="checkin.Anular()" id="btnAnularCheckIn" class="btn btn-labeled btn-warning btn-sm oculto">
+                        <span class="spinner-border spinner-border-sm spinner_cargando hide" style="display: none;" role="status" aria-hidden="true"></span>
+                        <span class="label_cargando hide" style="display: none;">Loading...</span>
+                        <span class="label_bnormal"><span class="btn-label"><i class="fa fa-ban"></i></span> Anular Checkin</span>
+                    </button>
+                    <button type="button" onclick="checkin.GenerarFactura()" id="btnGenerarFactura" class="btn btn-labeled btn-primary btn-sm oculto">
+                        <span class="spinner-border spinner-border-sm spinner_cargando hide" style="display: none;" role="status" aria-hidden="true"></span>
+                        <span class="label_cargando hide" style="display: none;">Loading...</span>
+                        <span class="label_bnormal"><span class="btn-label"><i class="fa fa-file-text-o"></i></span>Ver/Generar Factura</span>
+                    </button>
+                    <button type="button" onclick="checkin.ImprimirCheckIn()" id="btnImprimirCheckIn" class="btn btn-labeled btn-inverse btn-sm oculto">
+                        <span class="spinner-border spinner-border-sm spinner_cargando hide" style="display: none;" role="status" aria-hidden="true"></span>
+                        <span class="label_cargando hide" style="display: none;">Loading...</span>
+                        <span class="label_bnormal"><span class="btn-label"><i class="fa fa-print"></i></span>Imprimir</span>
+                    </button>
+                    <button type="button" onclick="checkin.CheckIn()" id="btnCheckIn" class="btn btn-labeled btn-info btn-sm oculto">
+                        <span class="spinner-border spinner-border-sm spinner_cargando hide" style="display: none;" role="status" aria-hidden="true"></span>
+                        <span class="label_cargando hide" style="display: none;">Loading...</span>
+                        <span class="label_bnormal"><span class="btn-label"><i class="fa fa-key"></i></span>CheckIn</span>
+                    </button>
+                    <button type="button" onclick="checkin.CheckOut()" id="btnCheckOut" class="btn btn-labeled btn-info btn-sm oculto">
+                        <span class="spinner-border spinner-border-sm spinner_cargando hide" style="display: none;" role="status" aria-hidden="true"></span>
+                        <span class="label_cargando hide" style="display: none;">Loading...</span>
+                        <span class="label_bnormal"><span class="btn-label"><i class="fa fa-car"></i></span>CheckOut</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal md-effect-16" id="formulario-huesped" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content" style="margin-top: 38px; background: #D9EDF7;">
+                <div class="modal-header modal-header-primary">
+                    <h3><i class="fa fa-user m-r-5"></i> Huésped</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12">
+                        <form class="form-horizontal">
+                            <input type="text" id="txtSalaId" value="0" placeholder="" class="oculto">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <div class="form-group">
+                                        <div class="row form-group">
+                                            <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-4">Huésped No.:</label>
+                                            <div class="col-xs-6 col-sm-6 col-md-5 col-lg-8 col-xl-8 p-0">
+                                                <input type="text" data-sigfocus="txtFechaEntrada" disabled id="txtNo" placeholder="" class="form-control">
+                                                <div class="invalid-feedback">
+                                                    <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <div class="form-group">
+                                        <div class="row form-group">
+                                            <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-4">Fecha Entrada:</label>
+                                            <div class="col-xs-6 col-sm-6 col-md-5 col-lg-8 col-xl-8 p-0">
+                                                <input type="text" data-sigfocus="txtDocumentoIdent" id="txtFechaEntrada" placeholder="" class="form-control">
+                                                <div class="invalid-feedback">
+                                                    <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <div class="form-group">
+                                        <div class="row form-group">
+                                            <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-4">Doc. Identidad:</label>
+                                            <div class="col-xs-6 col-sm-6 col-md-5 col-lg-8 col-xl-8 p-0">
+                                                <input type="text" data-sigfocus="txtNombre" onchange="checkin.ConsultarIdenticacionHuesped()" id="txtDocumentoIdent" placeholder="" class="form-control">
+                                                <div class="invalid-feedback">
+                                                    <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <div class="form-group">
+                                        <div class="row form-group">
+                                            <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-4">Nombre:</label>
+                                            <div class="col-xs-6 col-sm-6 col-md-5 col-lg-8 col-xl-8 p-0">
+                                                <input type="text" data-sigfocus="cmbNacionalidad" id="txtNombre" placeholder="" class="form-control">
+                                                <div class="invalid-feedback">
+                                                    <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <div class="form-group">
+                                        <div class="row form-group">
+                                            <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-4">Nacionalidad:</label>
+                                            <div class="col-xs-6 col-sm-6 col-md-5 col-lg-8 col-xl-8 p-0">
+                                                <select onchange="checkin.BuscarTarifa()" data-sigfocus="cmbSexo" id="cmbNacionalidad" class="form-control">
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <div class="form-group">
+                                        <div class="row form-group">
+                                            <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-4">Sexo:</label>
+                                            <div class="col-xs-6 col-sm-6 col-md-5 col-lg-8 col-xl-8 p-0">
+                                                <select onchange="checkin.BuscarTarifa()" data-sigfocus="txtEdad" id="cmbSexo" class="form-control">
+                                                    <option value=""></option>
+                                                    <option value="M">Masculino</option>
+                                                    <option value="F">Femenino</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <div class="form-group">
+                                        <div class="row form-group">
+                                            <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-4">Edad:</label>
+                                            <div class="col-xs-6 col-sm-6 col-md-5 col-lg-8 col-xl-8 p-0">
+                                                <input type="number" data-sigfocus="txtDireccion" id="txtEdad" placeholder="" class="form-control">
+                                                <div class="invalid-feedback">
+                                                    <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <div class="form-group">
+                                        <div class="row form-group">
+                                            <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-4">Dirección:</label>
+                                            <div class="col-xs-6 col-sm-6 col-md-5 col-lg-8 col-xl-8 p-0">
+                                                <input type="text" data-sigfocus="txtTelefono" id="txtDireccion" placeholder="" class="form-control">
+                                                <div class="invalid-feedback">
+                                                    <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <div class="form-group">
+                                        <div class="row form-group">
+                                            <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-4">Teléfono:</label>
+                                            <div class="col-xs-6 col-sm-6 col-md-5 col-lg-8 col-xl-8 p-0">
+                                                <input type="text" data-sigfocus="txtEmail" id="txtTelefono" placeholder="" class="form-control">
+                                                <div class="invalid-feedback">
+                                                    <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <div class="form-group">
+                                        <div class="row form-group">
+                                            <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-4">Email:</label>
+                                            <div class="col-xs-6 col-sm-6 col-md-5 col-lg-8 col-xl-8 p-0">
+                                                <input type="email" data-sigfocus="txtFechaHasta" id="txtEmail" placeholder="" class="form-control">
+                                                <div class="invalid-feedback">
+                                                    <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="checkin.CancelarHuesped()" class="btn btn-labeled btn-danger btn-sm"><span class="btn-label"><i class="fa fa-times"></i></span>Cancelar</button>
+                    <button type="button" onclick="checkin.GuardarHuesped()" id="btnGuardarHuesped" class="btn btn-labeled btn-add btn-sm">
+                        <span class="spinner-border spinner-border-sm spinner_cargando hide" style="display: none;" role="status" aria-hidden="true"></span>
+                        <span class="label_cargando hide" style="display: none;">Loading...</span>
+                        <span class="label_bnormal"><span class="btn-label"><i class="fa fa-check"></i></span>Guardar</span>
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    @Html.Partial("_pdf_viewer")
+    
+    @Html.Partial("_pant_Factura")
+</section>
+
+@section Scripts{
+    <!-- Modal js -->
+    <script src="assets/plugins/modals/classie.js"></script>
+    <script src="assets/plugins/modals/modalEffects.js"></script>
+    <script asp-append-version="true" src="~/assets/dist/js/checkin.js"></script>
+    <script>
+        $(".op-menu").removeClass('active');
+        $("#op-checkin").addClass('active');
+
+    </script>
+}

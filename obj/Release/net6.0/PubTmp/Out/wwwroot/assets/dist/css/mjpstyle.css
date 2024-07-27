@@ -1,0 +1,241 @@
+﻿#boton-exportar-data {
+    position: absolute;
+    right: 6px;
+    top: 80px;
+}
+.pagination a {
+    color: #003A6C !important;
+}
+.page-item.active .page-link {
+    color: #fff !important;
+    background-color: #003A6C !important;
+    border-color: #003A6C !important;
+}
+.page-item.disabled .page-link {
+    color: #6c757d !important;
+}
+#btnBuscar {
+    background-color: #003A6C !important;
+    border: 1px solid #003A6C !important;
+    border-radius: 0;
+}
+#content-filtro {
+    margin-right: -13px !important;
+}
+.boton-agregar {
+    margin-left: -15px !important;
+}
+.p-l-0{
+    padding-left:0;
+}
+.p-r-0{
+    padding-right:0;
+}
+.p-t-0{
+    padding-top:0;
+}
+.p-b-0 {
+    padding-bottom: 0;
+}
+.form-group {
+    padding-right: 20px;
+}
+.select2-container{
+    width:100% !important;
+}
+.select2-container .select2-selection--single {
+    height: 33px !important;
+    padding-top: 2px !important;
+}
+.oculto {
+    display:none !important;
+}
+.dt-buttons{
+    position: absolute !important;
+    top: 79px !important;
+    right: 6px !important;
+}
+.dt-button{
+    background: #003A6C !important;
+    color: #fbfbfb !important;
+    border: 1px solid #003A6C !important;
+    margin-bottom: 5px !important;
+    font-size: 12px !important;
+    height: 27px !important;
+}
+.btn-action-mjp{
+    padding: 0px 4px !important;
+}
+.btn-action{
+    display: block !important;
+    width: 54px;
+}
+div.dataTables_wrapper div.dataTables_filter
+{
+    text-align: left !important;
+    width: 100% !important;
+}
+div.dataTables_wrapper div.dataTables_filter label
+{
+    width: 100% !important;
+}
+div.dataTables_wrapper div.dataTables_filter input
+{
+    width: 94% !important;
+}
+.border_table
+{
+    border: 0 !important;
+}
+#content-habitaciones
+{
+    max-height: 600px;
+    overflow-y: auto;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered
+{
+    color: #555 !important;
+    padding-left: 15px;
+    font-size: 14px;
+}
+.hab-inactiva{
+    background-color: darkgray;
+}
+.btn-estado-hab
+{
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 27px;
+    height: 26px;
+    position: absolute;
+    right: 4px;
+    top: 5px;
+}
+.op-habitaciones-res
+{
+    position: relative!important;
+}
+#label-cliente
+{
+    cursor: pointer;
+}
+#label-cliente:hover
+{
+    text-decoration: underline;
+}
+a.fc-more {
+    font-weight: 600 !important;
+    color: forestgreen !important;
+}
+.cardbox {
+    -moz-box-shadow: 0 0 5px #888;
+    -webkit-box-shadow: 0 0 5px #888;
+    box-shadow: 0 0 5px #888;
+    color: #e4e5e7;
+    cursor: pointer;
+    background-color: #003A6C;
+    margin-bottom: 25px;
+    border-radius: 4px;
+    height: 100px !important;
+}
+.cardbox:hover {
+    background-color: #010a0f!important;
+}
+.cardbox-checkin {
+    background-color: lightcoral!important;
+}
+.cardbox-reserva {
+    background-color: #f39c12!important;
+}
+.cardbox-checkout {
+    background-color: red!important;
+}
+.cardbox-inactive {
+    background-color: darkgray!important;
+}
+.alert-sm{
+    font-size: 25px;
+    padding: 0px;
+    border: 0;
+}
+.btn-label
+{
+    left: -9px !important;
+}
+#content-factura-det,#content-factura-doc{
+    min-height: 550px;
+}
+#dataTable-huesped table tbody td,#content-factura-det table tbody td{
+    padding: 3px 5px 5px 8px !important;
+}
+#content-factura-det .card-body{
+    overflow: auto;
+    max-height: 470px;
+}
+.float-r
+{
+    float: right !important;
+}
+#content-factura-total {
+    height: 93px;
+    background-color: #374767;
+    color: lightcoral;
+    font-size: 46px;
+}
+#content-factura-total label {
+    font-size:50px
+}
+.factura-abierta
+{
+    color:darkgreen;
+}
+.factura-cerrada
+{
+    color:red;
+}
+.factura-sinabrir
+{
+    color:dodgerblue;
+}
+.input-factura {
+    padding: 0px 4px !important;
+    height: 31px !important;
+}
+.td-factura-header {
+    padding: 4px 7px !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+    padding-left: 5px !important;
+}
+#cmbComprobante{
+    text-align: center;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+.totales-dashboard {
+    color: #e4e5e7;
+    font-size: 20px;
+    font-weight: bold;
+}
+.nombre-empresa{
+    position: absolute;
+    top: 23px;
+    right: 29px;
+}
+.nombre-empresa i{
+    margin-top: -5px;
+}
+#btnPagAnterior,#btnPagSiguiente {
+    cursor: pointer;
+}
+@media (min-width: 576px) {
+    .modal-completo {
+        max-width: 80% !important;
+    }
+}
+
+@media (max-width: 1100px) {
+    .nombre-empresa{
+        position: initial !important;
+    }
+}

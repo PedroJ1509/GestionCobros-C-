@@ -1,0 +1,140 @@
+﻿@{
+    ViewData["titulo"] = "Consulta de Inventario";
+    ViewData["titulo-info"] = "Realizas consulta aplicando diferentes filtros";
+}
+
+@section Style{
+<!-- dataTables css -->
+<link href="~/assets/dist/css/datatables.min.css" rel="stylesheet" />
+}
+
+<style>
+        .dt-buttons {
+            top: 195px !important;
+            position: initial !important;
+            
+        }
+
+        .caja-filtro {
+            margin-bottom: 45px;
+            
+        }
+
+</style>
+@Html.Partial("_tituloPaginas")
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-lg-12 pinpin">
+            <div class="card" data-sortable="true">
+                <div class="card-body">
+                    <input type="text" id="txtSiCambio" value="1" class="form-control oculto" />
+                    <div class="col-lg-12 col-sm-md-12 pinpin">
+                        <div class="card caja-filtro" data-sortable="true">
+                             <div class="card-body">
+                                <div class="row form-group">
+                                     <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                        <label>Descripción:</label>
+                                        <div>
+                                            <input type="text" onchange="consinventario.CambioFiltro()" id="txtDescripcion" class="form-control text-uppercase">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                                        <label>Existencia:</label>
+                                        <div>
+                                            <select onchange="consinventario.CambioFiltro()" data-sigfocus="btnGuardar" id="cmbExistencia" class="form-control">
+                                                <option value="0">Todos</option>
+                                                <option value="1">Mayor que 0</option>
+                                                <option value="2">Menor que 0</option>
+                                                <option value="3">Igual a 0</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                                         <div style="padding-top: 25px;">
+                                             <button type="button" onclick="consinventario.ActualizarFiltro()" id="btnFiltrar" class="btn btn-labeled btn-add btn-sm">
+                                                 <span class="spinner-border spinner-border-sm spinner_cargando hide" style="display: none;" role="status" aria-hidden="true"></span>
+                                                 <span class="label_cargando hide" style="display: none;">Loading...</span>
+                                                 <span class="label_bnormal"><span class="btn-label"><i class="fa fa-filter"></i></span> Filtrar</span>
+                                             </button>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="table-responsive">
+                            <table id="dataTable" class="table display table-bordered table-striped table-hover no-wrap">
+                                <thead class="back_table_color">
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Descripción</th>
+                                        <th>Parte No.</th>
+                                        <th>UDM</th>
+                                        <th>Ubicación</th>
+                                        <th>Exist.</th>
+                                        <th>Costo</th>
+                                        <th>Precios</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-sm-8 col-8">
+                             <div class="inbox-avatar">
+                                 <div class="inbox-avatar-text inbox_name">
+                                     <div class="avatar-name">Registros del <span id="numero-registro-pag-inicio">1</span> al <span id="numero-registro-pag-final">0</span> de un total de <span id="numero-registro-pag-total">0</span> registros
+                                     </div>
+                                 </div>
+                             </div>
+                        </div>
+                        <div class="col-sm-4 col-4">
+                             <div class="inbox-toolbar btn-toolbar">
+                                 <div class="btn-group margin_group replay">
+                                       <a id="btnPagAnterior" onclick="consinventario.IrPaginaAnterior()" class="btn btn-default"><span class="fa fa-reply"></span></a>
+                                       <a class=" btn btn-default none_none"><span id="numero-pagina-actual">1</span></a>
+                                       <a class=" btn btn-default none_none"><span>de</span></a>
+                                       <a class=" btn btn-default none_none"><span id="total-numero-pagina">15</span></a>
+                                       <a id="btnPagSiguiente" onclick="consinventario.IrSiguientePagina()" class="btn btn-default"><span class="fa fa-share"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- /.content --><!-- Dashboard js --><!-- table-export js -->
+
+<script src="assets/plugins/table-export/tableExport.js"></script>
+<script src="assets/plugins/table-export/jquery.base64.js"></script>
+<script src="assets/plugins/table-export/html2canvas.js"></script>
+<script src="assets/plugins/table-export/sprintf.js"></script>
+<script src="assets/plugins/table-export/jspdf.js"></script>
+<script src="assets/plugins/table-export/base64.js"></script><!-- dataTables js -->
+
+<script src="~/assets/dist/js/datatables.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+@section Scripts{
+
+    <script asp-append-version="true" src="~/assets/dist/js/consInventario.js"></script>
+
+    <script>
+
+        $(".op-menu").removeClass('active');
+        $("#group-consulta,#op-mat-consultainventario").addClass('active');
+    </script>
+
+}
+

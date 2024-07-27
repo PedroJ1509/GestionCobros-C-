@@ -1,0 +1,171 @@
+﻿@{
+    ViewData["titulo"] = "JaMPe Software - Dashboard";
+    ViewData["titulo-info"] = "Resumen datos principales";
+}
+
+@Html.Partial("_tituloPaginas")
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class=" col-sm-6 col-md-6 col-lg-3">
+            <div id="cardbox3">
+                <div class="statistic-box">
+                    <i class="hvr-buzz-out fa fa-shopping-bag fa-3x"></i>
+                    <div class="counter-number pull-right">
+                        <i class="ti ti-money"></i><span id="ventas-dia" class="totales-dashboard">0</span>
+                        <span class="slight">
+                            <i class="fa fa-play fa-rotate-270"> </i>
+                        </span>
+                    </div>
+                    <h3>  Ventas día</h3>
+                </div>
+            </div>
+        </div>
+        <div class=" col-sm-6 col-md-6 col-lg-3">
+            <div id="cardbox1">
+                <div class="statistic-box">
+                    <i class="fa fa-money fa-3x"></i>
+                    <div class="counter-number pull-right">
+                        <span id="recibo-dia" class="totales-dashboard">0</span>
+                        <span class="slight">
+                            <i class="fa fa-play fa-rotate-270"> </i>
+                        </span>
+                    </div>
+                    <h3> Cobros día</h3>
+                </div>
+            </div>
+        </div>
+        <div class=" col-sm-6 col-md-6 col-lg-3">
+            <div id="cardbox4">
+                <div class="statistic-box">
+                    <i class="hvr-buzz-out fa fa-asterisk fa-3x"></i>
+                    <div class="counter-number pull-right">
+                        <span id="total-cxp" class="totales-dashboard">0</span>
+                        <span class="slight">
+                            <i class="fa fa-play fa-rotate-270"> </i>
+                        </span>
+                    </div>
+                    <h3> Últ. cierre caja</h3>
+                </div>
+            </div>
+        </div>
+        <div class=" col-sm-6 col-md-6 col-lg-3">
+            <div id="cardbox2">
+                <div class="statistic-box">
+                    <i class="hvr-buzz-out fa fa-book fa-3x"></i>
+                    <div class="counter-number pull-right">
+                        <span id="total-cxc" class="totales-dashboard">0</span>
+                        <span class="slight">
+                            <i class="fa fa-play fa-rotate-270"> </i>
+                        </span>
+                    </div>
+                    <h3>  Total CxC</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Barchart -->
+        <div class="col-lg-8  col-md-12 col-sm-12 ">
+            <div class="card lobicard lobicard-custom-control" data-sortable="true">
+                <div class="card-header">
+                    <div class="card-title custom_title">
+                        <h4>Total Ventas por Mes</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <canvas id="barChart" height="150"></canvas>
+                </div>
+            </div>
+        </div>
+        <!-- bar chart -->
+        <div class="col-lg-4  col-md-12 col-sm-12 ">
+            <div class="card lobicard lobicard-custom-control" data-sortable="true">
+                <div class="card-header">
+                    <div class="card-title custom_title">
+                        <h4>Total Ventas Últimos 7 Días</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <canvas id="singelBarChart" height="323"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 pinpin">
+            <div class="card lobicard lobicard-custom-control" data-sortable="true">
+                <div class="card-header">
+                    <div class="card-title custom_title">
+                        <h4>Últimos Cierres de Caja</h4>
+                    </div>
+                </div>
+                <div id="content-cierre-caja" class="card-body">
+                   
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 pinpin">
+            <div class="card lobicard lobicard-custom-control" data-sortable="true">
+                <div class="card-header">
+                    <div class="card-title custom_title">
+                        <h4>Artículos más vendidos en el mes</h4>
+                    </div>
+                </div>
+                <div id="content-art-vendidos" class="card-body">
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-4 col-md-12 col-sm-12">
+            <div class="card lobicard lobicard-custom-control" data-sortable="true">
+                <div class="card-header">
+                    <div class="card-title custom_title">
+                        <h4>Calender</h4>
+                    </div>
+                </div>
+                <!-- Monthly calender widget -->
+                <div class="panel panel-bd">
+                    <div class="card-body">
+                        <div class="monthly_calender">
+                            <div class="monthly" id="m_calendar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts{
+    <script asp-append-version="true" src="~/assets/dist/js/indexdashboard.js"></script>
+    <script>
+        function dash() {
+            // single bar chart
+            
+            //monthly calender
+            $('#m_calendar').monthly({
+                mode: 'event',
+                //jsonUrl: 'events.json',
+                //dataType: 'json'
+                xmlUrl: 'events.xml'
+            });
+
+            
+            //counter
+            $('.count-number').counterUp({
+                delay: 10,
+                time: 5000
+            });
+        }
+        dash();
+
+        $(".op-menu").removeClass('active');
+        $("#op-dashboard").addClass('active');
+    </script>
+}

@@ -1,0 +1,202 @@
+﻿@using JaMPeApp.DTOs
+@model checkInReport
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <table style="width:100%;">
+        <tbody>
+            <tr>
+                <td><strong><img style="width:150px" src="~/assets/dist/images/logo-gaspar.png" /></strong></td>
+                <td style="font-size:20px"><strong>@Model.tituloNombreEmpresa.ToString()</strong></td>
+            </tr>
+        </tbody>
+    </table>
+    <table style="width:100%">
+        <tbody>
+            <tr>
+                <td>
+                    <strong>Keys # of Sets _________</strong><br />
+                    <strong>Lost Key			US$5</strong><br />
+                    <strong>Lost towels	US$10/each</strong><br />
+                    <strong>Lost remote	US$10/each</strong>
+                </td>
+                <td>
+                    <strong># Sets de llaves _________</strong><br />
+                    <strong>Llaves perdida		RD$250</strong><br />
+                    <strong>Toallas perdidas	RD$500/toalla</strong><br />
+                    <strong>Control perdido	RD$500/control</strong>
+                </td>
+                <td>
+                    <table style="border:1px solid #000">
+                        <tbody>
+                            <tr>
+                                <td colspan="3" style="text-align:center">
+                                    <strong>Controls/Controles</strong><br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center"><input type="checkbox"> TV</td>
+                                <td style="text-align:center"><input type="checkbox"> Air/Aire</td>
+                                <td style="text-align:center"><input type="checkbox"> Cable</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <table style="border:1px solid #000">
+        <tbody>
+            <tr>
+                <td><strong>NO. DE RESERVACION :</strong> </td>
+                <td>@Model.reservaNo</td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    @*<label style="text-align:center;">_______________________________________________________________________________________________________________</label>*@
+    <table style="width: 100%; border: 1px solid #000">
+        <tbody>
+            <tr>
+                <td style="border-bottom:1px solid #000"><strong>INFORMACIÓN DEL HUESPED</strong><br /><br /></td>
+                <td style="border-bottom:1px solid #000"><strong>GUEST INFORMATION</strong><br /><br /></td>
+            </tr>
+            <tr>
+                <td style="border-bottom:1px solid #000"><strong>Título / Title: </strong><label> Sr.</label></td>
+                <td style="border-bottom:1px solid #000"><strong>Nombre  / Name:</strong><label> @Model.HuespedNombre.ToUpper()</label></td>
+            </tr>
+            <tr>
+                <td style="border-bottom:1px solid #000" colspan="2"><strong>Empresa / Company:</strong> @Model.clienteNombre.ToUpper()</td>
+            </tr>
+            <tr>
+                <td style="border-bottom:1px solid #000"><strong>País / Country:</strong> @Model.HuespedDireccion.ToString()</td>
+                <td style="border-bottom:1px solid #000"><strong>Fax:</strong></td>
+            </tr>
+            <tr>
+                <td style="border-bottom:1px solid #000"><strong>Teléfono / Telephone:</strong> @Model.HuespedTelefono</td>
+                <td style="border-bottom:1px solid #000"><strong>Correo electrónico / E-mail:</strong> @Model.HuespedEmail</td>
+            </tr>
+            <tr>
+                <td><strong>Numero de pasaporte / Cédula Passport Numer:</strong> @Model.HuespedIdentificacion</td>
+                <td><strong>Nacionalidad:</strong> @Model.HuespedNacionalidad</td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <table style="border:1px solid #000;width:100%;">
+        <tbody>
+            <tr>
+                <td colspan="2" style="text-align: center; border-bottom: 1px solid #000">
+                    <strong>LLEGADA Y SALIDA / ARRIVALAND AND DEPARTURE</strong><br /><br />
+                </td>
+            </tr>
+            <tr>
+                <td><strong>LLEGADA / ARRIVAL:</strong> @Model.HuespedFechaEntrada</td>
+                <td><strong>SALIDA /  DEPARTURE:</strong> @Model.HuespedFechaSalida</td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <table style="border:1px solid #000;width:100%;">
+        <tbody>
+            <tr>
+                <td colspan="4" style="text-align: center; border-bottom: 1px solid #000">
+                    <strong>A RELLENAR POR RECEPCION</strong><br /><br />
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Habitación asignada:</strong><br /> @Model.HuespedHabitacion</td>
+                <td><strong>Tipo Habitación:</strong><br /> @Model.HuespedTipoHabitacion</td>
+                <td><strong>Tipo Hospedaje:</strong><br /> @Model.HuespedTipoHospedaje</td>
+                <td><strong>Tarifa Hab. contratada:</strong><br /> @Model.HuespedTarifa</td>
+            </tr>
+            <tr>
+                <td colspan="4" style=" border-top: 1px solid #000 ">
+                    <strong>If sharing room, please give their name / si comparte una habitación con otra persona, indique su nombre:</strong><br />
+                    @foreach (var item in Model.listadoHuespedes)
+                    {
+                        if (item.HuespedNombre != "")
+                        {
+                            <label>@item.HuespedNombre.ToUpper() - @item.HuespedSexo</label><br />
+                        }
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" style="text-align: center; border-bottom: 1px solid #000; border-top: 1px solid #000 ">
+                    <strong>Notice to Guest / Aviso al invitado</strong>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" style="text-align: center; border-bottom: 1px solid #000">
+                    <strong>
+                        <p>By signing above the guest acknowledges that he or she is responsible for the damages occuring in the room during his or her stay and that the hotel may change him or her for said damages on credit cardfuting funds from wholesalers, receptirnished or withold the same from depostited fuods. Also guest acknowledges that if the hotel is unsuccetful in collet</p>
+                        <p>Al firmar, el huesped reconoce que él o ella es responsable por los daños que ocurran en la habitación durante su estadia y que el hotel puede cobrarle por dichos daños con tarjeta de crédito o con los mismos fondos depositados. También el huésped reconoce que si el hotel no tiene éxito en fondos de recolección de mayorístas, operadores turísticos receptivos o una empresa internet con 3 meses de la fecha de finalización de la compra, el hotel está autorizado a cargar la tarjeta de crédito de invitado por el mismo.</p>
+                    </strong>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>OPCIONES DE PAGO/</strong> 
+                    <br /><strong>PAYMENT OPTIONS:</strong>
+                </td>
+                <td colspan="4">
+                    <table style="width:100%">
+                        <tbody>
+                            <tr>
+                                <td style="text-align:center"><input type="checkbox"> Visa</td>
+                                <td style="text-align:center"><input type="checkbox"> Master Card</td>
+                                <td style="text-align:center"><input type="checkbox"> American Express</td>
+                                <td style="text-align:center"><input type="checkbox"> Diners club</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td style="border-top: 1px solid #000" colspan="2">
+                    <strong>
+                        Número de tarjeta de crédito<br />
+                        Credit card number:
+                    </strong>
+                </td>
+                <td style="border-top: 1px solid #000" colspan="2">
+                    <strong>
+                        Fecha de expitación/<br />
+                        Expiration date:
+                    </strong>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center; border-top: 1px solid #000" colspan="2">
+                    <br /><br />
+                    <br /><br />
+                    <strong>
+                        ___________________________________________<br />
+                        Signature of Guess on file<br />
+                        Firma del invitado en el archivo
+                    </strong>
+                </td>
+                <td style="text-align: center; border-top: 1px solid #000" colspan="2">
+                    <br /><br />
+                    <br /><br />
+                    <strong>
+                        ___________________________________________<br />
+                        Signature of Credit Card Holder<br />
+                        Firma del titular de la tarjeta de crédito
+                    </strong>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

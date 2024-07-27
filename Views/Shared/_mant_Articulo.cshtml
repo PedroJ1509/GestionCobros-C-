@@ -1,0 +1,406 @@
+﻿<!-- ADD Modal1 -->
+<div class="modal fade" id="mant-articulo" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-completo">
+        <div class="modal-content">
+            <div class="modal-header modal-header-primary">
+                <h3>Articulos</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form class="form-horizontal">
+                            <input type="text" id="txtArticuloId" value="0" placeholder="" class="oculto">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                    <div class="row form-group">
+                                        <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">Código:</label>
+                                        <div class="col-xs-6 col-sm-6 col-md-5 col-lg-9 col-xl-9 p-0">
+                                            <input type="text" data-sigfocus="txtNoParte" id="txtCodigoArt" placeholder="" class="form-control text-uppercase">
+                                            <div class="invalid-feedback">
+                                                <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">No. Parte:</label>
+                                        <div class="col-xs-6 col-sm-6 col-md-5 col-lg-9 col-xl-9 p-0">
+                                            <input type="text" data-sigfocus="txtDescripcion" placeholder="" id="txtNoParte" class="form-control text-uppercase">
+                                            <div class="invalid-feedback">
+                                                <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">Descripción:</label>
+                                        <div class="col-xs-6 col-sm-6 col-md-5 col-lg-9 col-xl-9 p-0">
+                                            <input type="text" data-sigfocus="cmbDepartamento" id="txtDescripcion" placeholder="" class="form-control text-uppercase">
+                                            <div class="invalid-feedback">
+                                                <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">Depart.:</label>
+                                        <div class="col-xs-6 col-sm-6 col-md-5 col-lg-9 col-xl-9 p-0">
+                                            <select data-sigfocus="cmbModelo" id="cmbDepartamento" class="form-control">
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 text-capitalize">@ViewBag.Modelo:</label>
+                                        <div class="col-xs-6 col-sm-6 col-md-5 col-lg-9 col-xl-9 p-0">
+                                            <select data-sigfocus="cmbMarca" id="cmbModelo" class="form-control">
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 text-capitalize">@ViewBag.Marca:</label>
+                                        <div class="col-xs-6 col-sm-6 col-md-5 col-lg-9 col-xl-9 p-0">
+                                            <select data-sigfocus="cmbUnidad" id="cmbMarca" data-unidadidant="" class="form-control">
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">Unidad:</label>
+                                        <div class="col-xs-6 col-sm-6 col-md-5 col-lg-9 col-xl-9 p-0">
+                                            <select data-sigfocus="txtGanMin" id="cmbUnidad" class="form-control">
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="row form-group">
+                                        <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">% Gan. Mín:</label>
+                                        <div class="col-xs-6 col-sm-6 col-md-5 col-lg-3 col-xl-3 p-0">
+                                            <input type="number" data-sigfocus="cmbDepartamento" id="txtGanMin" placeholder="" class="form-control">
+                                            <div class="invalid-feedback">
+                                                <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">Existencia:</label>
+                                        <div class="col-xs-6 col-sm-6 col-md-5 col-lg-3 col-xl-3 p-0">
+                                            <input type="number" data-sigfocus="cmbDepartamento" id="txtExistencia" placeholder="" class="form-control">
+                                            <div class="invalid-feedback">
+                                                <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">Costo Últ.:</label>
+                                        <div class="col-xs-6 col-sm-6 col-md-5 col-lg-3 col-xl-3 p-0">
+                                            <input type="number" data-sigfocus="txtCostoPromedio" id="txtCostoUltimo" placeholder="" class="form-control">
+                                            <div class="invalid-feedback">
+                                                <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                            </div>
+                                        </div>
+                                        <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">Costo Prom.:</label>
+                                        <div class="col-xs-6 col-sm-6 col-md-5 col-lg-3 col-xl-3 p-0">
+                                            <input type="number" data-sigfocus="txtCostoItbis" id="txtCostoPromedio" disabled placeholder="" class="form-control">
+                                            <div class="invalid-feedback">
+                                                <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">Cost. + ITBIS:</label>
+                                        <div class="col-xs-6 col-sm-6 col-md-5 col-lg-3 col-xl-3 p-0">
+                                            <input type="number" data-sigfocus="cmbDepartamento" id="txtCostoItbis" disabled placeholder="" class="form-control">
+                                            <div class="invalid-feedback">
+                                                <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                            </div>
+                                        </div>
+                                        <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">Costo Cód.:</label>
+                                        <div class="col-xs-6 col-sm-6 col-md-5 col-lg-3 col-xl-3 p-0">
+                                            <input type="text" data-sigfocus="cmbDepartamento" id="txtCostoCódigo" placeholder="" class="form-control text-uppercase">
+                                            <div class="invalid-feedback">
+                                                <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+
+                                    <div class="row form-group m-0">
+                                        <div class="checkbox checkbox-info col-xs-6 col-sm-5 col-md-5 col-lg-6 col-xl-6">
+                                            <input id="chkActivo" type="checkbox">
+                                            <label for="chkActivo">Activo</label>
+                                        </div>
+                                        <div class="checkbox checkbox-info col-xs-6 col-sm-6 col-md-5 col-lg-6 col-xl-6">
+                                            <input id="chkInventario" type="checkbox">
+                                            <label for="chkInventario">Inventario</label>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group m-0">
+                                        <div class="checkbox checkbox-info col-xs-6 col-sm-5 col-md-5 col-lg-6 col-xl-6">
+                                            <input id="chkItbis" type="checkbox">
+                                            <label for="chkItbis">ITBIS</label>
+                                        </div>
+                                        <div class="checkbox checkbox-info col-xs-6 col-sm-6 col-md-5 col-lg-6 col-xl-6">
+                                            <input id="chkItbisIncluido" type="checkbox">
+                                            <label for="chkItbisIncluido">ITBIS Incluido</label>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group m-0 oculto">
+                                        <div class="checkbox checkbox-info col-xs-6 col-sm-5 col-md-5 col-lg-6 col-xl-6">
+                                            <input id="chkFabricado" type="checkbox">
+                                            <label for="chkFabricado">Fabricado</label>
+                                        </div>
+                                        <div class="checkbox checkbox-info col-xs-6 col-sm-6 col-md-5 col-lg-6 col-xl-6">
+                                            <input id="chkConvertible" type="checkbox">
+                                            <label for="chkConvertible">Convertible</label>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group m-0">
+                                        <div onclick="mantArticulo.HabilitaIngredientes()" class="checkbox checkbox-info col-xs-6 col-sm-5 col-md-5 col-lg-6 col-xl-6">
+                                            <input id="chkKitMenu" type="checkbox">
+                                            <label for="chkKitMenu">Ingredientes/Kit</label>
+                                        </div>
+                                        <div class="checkbox checkbox-info col-xs-6 col-sm-6 col-md-5 col-lg-6 col-xl-6">
+                                            <input id="chkVencimiento" type="checkbox">
+                                            <label for="chkVencimiento">Vencimiento</label>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group m-0">
+                                        <div class="checkbox checkbox-info col-xs-6 col-sm-5 col-md-5 col-lg-6 col-xl-6">
+                                            <input id="chkComanda" type="checkbox">
+                                            <label for="chkComanda">Comando</label>
+                                        </div>
+                                        <div class="checkbox checkbox-info col-xs-6 col-sm-6 col-md-5 col-lg-6 col-xl-6">
+                                            <input id="chkFactNegativo" type="checkbox">
+                                            <label for="chkFactNegativo">Fact. Negativo</label>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group m-0">
+                                        <div class="checkbox checkbox-info col-xs-6 col-sm-5 col-md-5 col-lg-6 col-xl-6">
+                                            <input id="chkGuarnicion" type="checkbox">
+                                            <label for="chkGuarnicion">Si Guarnición</label>
+                                        </div>
+                                        <div class="checkbox checkbox-info col-xs-6 col-sm-6 col-md-5 col-lg-6 col-xl-6">
+                                            <input id="chkVentaPeso" type="checkbox">
+                                            <label for="chkVentaPeso">Venta x Peso</label>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div id="detalle-articulo" class="col-12 col-sm-12 col-md-12 col-lg-12 m-b-20">
+                                        <div class=" custom_tabs">
+                                            <div class="card2-body card_card">
+                                                <ul class="nav nav-tabs" id="myTab1" role="tablist">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" id="precios-tab" data-toggle="tab" href="#precios" role="tab" aria-controls="home" aria-selected="true">Precios</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" id="unidadesMed-tab" data-toggle="tab" href="#unidadesMed" role="tab" aria-controls="profile" aria-selected="false">Unds medida</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" id="almacen-tab" data-toggle="tab" href="#almacen" role="tab" aria-controls="profile" aria-selected="false">Almacén</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" id="compras-tab" data-toggle="tab" href="#compras" role="tab" aria-controls="profile" aria-selected="false">Compras</a>
+                                                    </li>
+                                                    <li class="nav-item oculto">
+                                                        <a class="nav-link" id="ingredientes-tab" data-toggle="tab" href="#ingredientes" role="tab" aria-controls="profile" aria-selected="false">Ingred./Kit</a>
+                                                    </li>
+                                                </ul>
+                                                <div class="tab-content custom_tabs2">
+                                                    <div class="tab-pane fade show active" id="precios" role="tabpanel" aria-labelledby="home-tab">
+
+                                                        <div class="row">
+                                                            <div class="table-responsive">
+                                                                <table id="dataTable-precios" class="table display table-bordered table-striped table-hover no-wrap">
+                                                                    <thead class="back_table_color">
+                                                                        <tr>
+                                                                            <th>No</th>
+                                                                            <th>Precio</th>
+                                                                            <th>% Ganancia</th>
+                                                                            <th>% Comisión</th>
+                                                                            <th>Código</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="unidadesMed" role="tabpanel" aria-labelledby="profile-tab">
+                                                        <div class="">
+                                                            <div class="row form-group">
+                                                                <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-7 col-xl-7">
+                                                                    <label class="">Unidad:</label>
+                                                                    <div class="">
+                                                                        <select data-sigfocus="txtRatio" id="cmbUnidadMedida" class="form-control">
+             
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="invalid-feedback">
+                                                                        <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-2 col-xl-2">
+                                                                    <label class="">Ratio:</label>
+                                                                    <div class="">
+                                                                        <input type="number" data-sigfocus="txtRatio" placeholder="" id="txtRatio" class="form-control text-uppercase">
+                                                                    </div>
+                                                                    <div class="invalid-feedback">
+                                                                        <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-2 col-xl-2">
+                                                                    <label class=""></label>
+                                                                    <div class="" style="padding-top: 6px;">
+                                                                        <button type="button" onclick="mantArticulo.AgregarUnidad()" id="btnAgregarIngredientes" class="btn btn-info btn-circle m-b-5"><i class="fa fa-check"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            <div class="table-responsive">
+                                                                <table id="dataTable-unidades" class="table display table-bordered table-striped table-hover no-wrap">
+                                                                    <thead class="back_table_color">
+                                                                        <tr>
+                                                                            <th>Unidad</th>
+                                                                            <th>Cant.</th>
+                                                                            <th>Ratio</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="almacen" role="tabpanel" aria-labelledby="profile-tab">
+                                                        <div class="row">
+                                                            <div class="table-responsive">
+                                                                <table id="dataTable-almacen" class="table display table-bordered table-striped table-hover no-wrap">
+                                                                    <thead class="back_table_color">
+                                                                        <tr>
+                                                                            <th>Almacén</th>
+                                                                            <th>Existencia</th>
+                                                                            <th>Ubicación</th>
+                                                                            <th>Cant. Máx.</th>
+                                                                            <th>Cant. Mín.</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="compras" role="tabpanel" aria-labelledby="profile-tab">
+                                                        <div class="row">
+                                                            <div class="table-responsive">
+                                                                <table id="dataTable-compras" class="table display table-bordered table-striped table-hover no-wrap">
+                                                                    <thead class="back_table_color">
+                                                                        <tr>
+                                                                            <th>Fecha</th>
+                                                                            <th>Suplidor</th>
+                                                                            <th>Unid.</th>
+                                                                            <th>Cant.</th>
+                                                                            <th>Costo</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="ingredientes" role="tabpanel" aria-labelledby="profile-tab">
+                                                        <div class="">
+                                                            <div class="row form-group">
+                                                                <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-6 col-xl-6">
+                                                                    <label class="">Ingredientes:</label>
+                                                                    <div class="">
+                                                                        <select onchange="mantArticulo.SeleccionarUnidad(this)" data-sigfocus="btnGuardar" id="cmbIngredientes" class="form-control">
+             
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="invalid-feedback">
+                                                                        <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-2 col-xl-2 p-0">
+                                                                    <label class="">Unidad:</label>
+                                                                    <div class="">
+                                                                        <select data-sigfocus="txtRatio" id="cmbUnidadIngred" class="form-control">
+                                                                            <option value="0"></option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-2 col-xl-2">
+                                                                    <label class="">Cantidad:</label>
+                                                                    <div class="">
+                                                                        <input type="number" data-sigfocus="txtDescripcion" placeholder="" id="txtCantidadIngred" class="form-control text-uppercase">
+                                                                    </div>
+                                                                    <div class="invalid-feedback">
+                                                                        <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-2 col-xl-2">
+                                                                    <label class=""></label>
+                                                                    <div class="" style="padding-top: 6px;">
+                                                                        <button type="button" onclick="mantArticulo.AgregarIngrediente()" id="btnAgregarIngredientes" class="btn btn-info btn-circle m-b-5"><i class="fa fa-check"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            <div class="table-responsive">
+                                                                <table id="dataTable-ingredientes" class="table display table-bordered table-striped table-hover no-wrap">
+                                                                    <thead class="back_table_color">
+                                                                        <tr>
+                                                                            <th>Código</th>
+                                                                            <th>Descripción</th>
+                                                                            <th>Unidad</th>
+                                                                            <th>Cant.</th>
+                                                                            <th></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="mantArticulo.Cancelar()" class="btn btn-labeled btn-danger btn-sm"><span class="btn-label"><i class="fa fa-times"></i></span>Cancelar</button>
+                <button type="button" onclick="mantArticulo.Guardar()" id="btnGuardar" class="btn btn-labeled btn-add btn-sm">
+                    <span class="spinner-border spinner-border-sm spinner_cargando hide" style="display: none;" role="status" aria-hidden="true"></span>
+                    <span class="label_cargando hide" style="display: none;">Loading...</span>
+                    <span class="label_bnormal"><span class="btn-label"><i class="fa fa-check"></i></span> Guardar</span>
+                </button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+@section Scripts{
+
+ }

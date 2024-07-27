@@ -1,0 +1,82 @@
+﻿@{
+    ViewData["titulo"] = "Tipos de Habitación";
+    ViewData["titulo-info"] = "Mantenimiento de Tipos de Habitación";
+}
+
+@section Style{
+<!-- dataTables css -->
+<link href="~/assets/dist/css/datatables.min.css" rel="stylesheet" />
+}
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-lg-12 pinpin">
+            <div class="card" data-sortable="true">
+                <div class="card-header">
+                    <div class="card-title custom_title m-0">
+                        <div class="btn-group buttonexport d-flex" role="group">
+                            <h4>Listado de Tipos de Habitación</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                    <div class="btn-group d-flex boton-agregar" role="group">
+                        <div class="buttonexport" id="buttonlist">
+                            <a class="btn btn-add" href="#" data-toggle="modal" data-target="#formulario">
+                                <i class="fa fa-plus"></i> Nuevo
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="table-responsive">
+                            <table id="dataTable" class="table display table-bordered table-striped table-hover no-wrap">
+                                <thead class="back_table_color">
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Tipo</th>
+                                        <th>Estatus</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+     @Html.Partial("_mant_TipoHabitacion")
+
+</section>
+
+<!-- /.content -->
+@section Scripts{
+
+<!-- table-export js -->
+<script src="assets/plugins/table-export/tableExport.js"></script>
+<script src="assets/plugins/table-export/jquery.base64.js"></script>
+<script src="assets/plugins/table-export/html2canvas.js"></script>
+<script src="assets/plugins/table-export/sprintf.js"></script>
+<script src="assets/plugins/table-export/jspdf.js"></script>
+<script src="assets/plugins/table-export/base64.js"></script>
+<!-- dataTables js -->
+<script src="~/assets/dist/js/datatables.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+<script asp-append-version="true" src="~/assets/dist/js/tipoHabitacion.js"></script>
+<script>
+    $(".op-menu").removeClass('active');
+    $("#group-mantenimiento,#op-mat-tipohabitacion").addClass('active');
+</script>
+ }

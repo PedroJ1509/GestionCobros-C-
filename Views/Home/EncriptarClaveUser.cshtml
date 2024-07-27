@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["titulo"] = "Encriptar Clave";
+    ViewData["titulo-info"] = "Encriptar clave usuarios";
+}
+
+@Html.Partial("_tituloPaginas")
+@section Style{
+<!-- dataTables css -->
+<link href="~/assets/dist/css/datatables.min.css" rel="stylesheet" />
+}
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="row form-group">
+                <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">Usuario:</label>
+                <div class="col-xs-6 col-sm-6 col-md-5 col-lg-9 col-xl-9 p-0">
+                    <input type="text" data-sigfocus="txtClienteDireccion" id="txtUsuario" placeholder="" class="form-control">
+                    <div class="invalid-feedback">
+                        <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3"></label>
+                <div class="checkbox checkbox-info col-xs-6 col-sm-6 col-md-5 col-lg-9 col-xl-9" style="padding-left: 3px;">
+                    <input id="chkActivo" type="checkbox">
+                    <label for="chkActivo">Activo</label>
+                </div>
+            </div>
+            <div class=" form-group user-form-group">
+                <div class="float-right">
+                    <button type="button" onclick="encriptar.EnviarClave()" id="btnGuardar" class="btn btn-add btn-sm">
+                        <span class="spinner-border spinner-border-sm spinner_cargando hide" style="display: none;" role="status" aria-hidden="true"></span>
+                        <span class="label_cargando hide" style="display: none;">Loading...</span>
+                        <span class="label_bnormal"> Encriptar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</section>
+
+<!-- /.content -->
+@section Scripts{
+
+<!-- table-export js -->
+<script src="assets/plugins/table-export/tableExport.js"></script>
+<script src="assets/plugins/table-export/jquery.base64.js"></script>
+<script src="assets/plugins/table-export/html2canvas.js"></script>
+<script src="assets/plugins/table-export/sprintf.js"></script>
+<script src="assets/plugins/table-export/jspdf.js"></script>
+<script src="assets/plugins/table-export/base64.js"></script>
+<!-- dataTables js -->
+<script src="~/assets/dist/js/datatables.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+<script asp-append-version="true" src="~/assets/dist/js/encriptarClave.js"></script>
+<script>
+    $(".op-menu").removeClass('active');
+    $("#group-mantenimiento,#op-mat-plan").addClass('active');
+</script>
+ }

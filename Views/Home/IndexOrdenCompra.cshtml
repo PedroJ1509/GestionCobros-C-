@@ -1,0 +1,311 @@
+﻿@{
+    ViewData["titulo"] = "Orden de Compra";
+    ViewData["titulo-info"] = "Crear / Consultar órdenes de Compras";
+}
+
+@section Style{
+<!-- dataTables css -->
+<link href="~/assets/dist/css/datatables.min.css" rel="stylesheet" />
+}
+
+<style>
+    .dt-buttons {
+        top: 195px !important;
+        position: initial !important;
+    }
+
+    .header-mant td {
+        padding-top: 2px !important;
+        padding-bottom: 2px !important;
+    }
+</style>
+@Html.Partial("_tituloPaginas")
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-lg-12 pinpin">
+            <div class="card" data-sortable="true">
+                @* <div class="card-header">
+                    <div class="card-title custom_title m-0">
+                        <div class="btn-group buttonexport d-flex" role="group">
+                            <h4>Consulta Ventas</h4>
+                        </div>
+                    </div>
+                </div> *@
+                <div class="card-body">
+
+                    <div class="col-lg-12 col-sm-md-12 pinpin">
+                        <div class="card caja-filtro" data-sortable="true">
+                            <div class="card-body">
+                                <div class="row form-group">
+                                    <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                                        <label class="">Fecha desde:</label>
+                                        <div class="">
+                                            <input type="text" placeholder="" id="txtFechaDesde" value="@DateTime.Now.ToString("dd/MM/yyyy")" class="form-control text-uppercase">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                                        <label class="">Fecha hasta:</label>
+                                        <div class="">
+                                            <input type="text" placeholder="" value="@DateTime.Now.ToString("dd/MM/yyyy")" id="txtFechaHasta" class="form-control text-uppercase">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                                        <label class="">Estado:</label>
+                                        <div class="">
+                                            <select data-sigfocus="btnGuardar" id="cmbEstado" class="form-control">
+                                                <option selected value="0">Todas</option>
+                                                <option value="1">Abiertas</option>
+                                                <option value="2">Cerradas</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
+  
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                        <label class="">Suplidor:</label>
+                                        <div class="">
+                                            <select  id="cmbSuplidor" class="form-control">
+                                                <option selected value="0">Todas</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                                        <div class="" style="padding-top: 25px;">
+                                            <button type="button" onclick="ordencompra.ConsultaOrden()" id="btnFiltrar" class="btn btn-labeled btn-add btn-sm">
+                                                <span class="spinner-border spinner-border-sm spinner_cargando hide" style="display: none;" role="status" aria-hidden="true"></span>
+                                                <span class="label_cargando hide" style="display: none;">Loading...</span>
+                                                <span class="label_bnormal"><span class="btn-label"><i class="fa fa-filter"></i></span> Filtrar</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-group d-flex boton-agregar" role="group">
+                        <div class="buttonexport" id="buttonlist">
+                            <a class="btn btn-add" href="#" data-toggle="modal" data-target="#mantenimiento-ordencompra">
+                                <i class="fa fa-plus"></i> Nuevo
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="table-responsive">
+                            <table id="dataTable-ordencompra" class="table display table-bordered table-striped table-hover no-wrap">
+                                <thead class="back_table_color">
+                                    <tr>
+                                        <th>Orden No.</th>
+                                        <th>Fecha</th>
+                                        <th>Suplidor</th>
+                                        <th class="text-right">SubTotal</th>
+                                        <th class="text-right">ITBIS</th>
+                                        <th class="text-right">Total</th>
+                                        <th class="text-right">Estado</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                   
+                                </tbody>
+                                <tfoot>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<div class="modal fade" id="mantenimiento-ordencompra" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-completo">
+        <div class="modal-content">
+            <div class="modal-header modal-header-primary">
+                <h3>Crear/Editar Oden de compra</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="card caja-filtro" data-sortable="true">
+                    <div class="card-body row" style="padding: 20px 20px 0 20px;">
+                        <input type="text" placeholder="" id="txtOrdenCompraId" value="1" class="form-control oculto">
+                        <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover header-mant" style="margin-bottom: 0;">
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Orden No.</strong> </td>
+                                            <td><input type="text" data-sigfocus="txtClienteTelefono" placeholder="" maxlength="13" id="txtOrdenNo" disabled class="form-control"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Suplidor</strong></td>
+                                            <td>
+                                                <select data-sigfocus="cmbCondicionPago" id="cmbSuplidor" class="form-control">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Céd./ RNC</strong> </td>
+                                            <td><span id="cliente-cedula">154-115445</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Teléfono</strong> </td>
+                                            <td><span id="cliente-telefono"></span>809-555-5555 </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover header-mant">
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Fecha</strong> </td>
+                                            <td><input type="text" placeholder="" value="@DateTime.Now.ToString("dd/MM/yyyy")" id="txtFechaHasta" class="form-control text-uppercase"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Condición</strong> </td>
+                                            <td>
+                                                <select data-sigfocus="cmbCondicionPago" id="cmbCondicion" class="form-control">
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="card caja-filtro" data-sortable="true">
+                    <div class="row p-20" style="padding: 0px 26px 0 35px;">
+                        <div class="col-12 row form-group p-0">
+                            <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-5 col-xl-5">
+                                <label class="">Suplidor:</label>
+                                <div class="">
+                                    <select id="cmbSuplidor" class="form-control">
+                                        <option selected value="0">Todas</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-12 col-md-2 col-lg-3 col-xl-3">
+                                <label class="">Und:</label>
+                                <div class="">
+                                    <select id="cmbUnidad" class="form-control">
+                                        <option selected value="0">Todas</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-2 col-xl-2">
+                                <label class="">Cantidad:</label>
+                                <div class="">
+                                    <input type="number" placeholder="" id="txtFechaDesde" value="0" class="form-control text-uppercase">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row p-20" style="padding: 0px 20px 0 20px;">
+                        <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <div class="table-responsive">
+                                <table id="dataTable-det-factura" class="table display table-bordered table-striped table-hover no-wrap">
+                                    <thead class="back_table_color">
+                                        <tr>
+                                            <th>Código</th>
+                                            <th>Descripción</th>
+                                            <th class="text-right">Cantidad</th>
+                                            <th>Unidad</th>
+                                            <th class="text-right">Precio</th>
+                                            <th class="text-right">ITBIS</th>
+                                            <th class="text-right">Importe</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Cantidad de item(s)</strong> </td>
+                                            <td><span id="cantidad-item"></span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-right"><strong>Sub Total</strong> </td>
+                                            <td class="text-right"><span id="factura-subtotal"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-right"><strong>Descuento</strong> </td>
+                                            <td class="text-right"><span id="factura-descuento"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-right"><strong>ITBIS</strong> </td>
+                                            <td class="text-right"><span id="factura-itbis"></span> </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-right"><strong>% Ley</strong> </td>
+                                            <td class="text-right"><span id="factura-ley"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-right"><strong>Total</strong> </td>
+                                            <td class="text-right"><span id="factura-total"></span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+<!-- /.content -->
+<!-- table-export js -->
+<script src="assets/plugins/table-export/tableExport.js"></script>
+<script src="assets/plugins/table-export/jquery.base64.js"></script>
+<script src="assets/plugins/table-export/html2canvas.js"></script>
+<script src="assets/plugins/table-export/sprintf.js"></script>
+<script src="assets/plugins/table-export/jspdf.js"></script>
+<script src="assets/plugins/table-export/base64.js"></script>
+<!-- dataTables js -->
+<script src="~/assets/dist/js/datatables.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+@section Scripts{
+    <script asp-append-version="true" src="~/assets/dist/js/ordenCompra.js"></script>
+
+    <script>
+        $(".op-menu").removeClass('active');
+        $("#group-procesos,#op-pro-ordencompra").addClass('active');
+    </script>
+ }

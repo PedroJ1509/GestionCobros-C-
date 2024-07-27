@@ -1,0 +1,196 @@
+﻿@{
+    ViewData["titulo"] = "Facturas";
+    ViewData["titulo-info"] = "Crear / Editar Facturas";
+}
+
+@section Style{
+
+    <!-- Notification Styles -->
+    <link href="assets/plugins/NotificationStyles/css/demo.css" rel="stylesheet" />
+    <link href="assets/plugins/NotificationStyles/css/ns-default.css" rel="stylesheet" />
+    <link href="assets/plugins/NotificationStyles/css/ns-style-growl.css" rel="stylesheet" />
+    <link href="assets/plugins/NotificationStyles/css/ns-style-attached.css" rel="stylesheet" />
+    <link href="assets/plugins/NotificationStyles/css/ns-style-bar.css" rel="stylesheet" />
+    <link href="assets/plugins/NotificationStyles/css/ns-style-other.css" rel="stylesheet" />
+    <link href="assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+    <!-- dataTables css -->
+    <link href="~/assets/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="~/assets/dist/css/datatables.min.css" rel="stylesheet" />
+    <link href="~/assets/dist/css/dropify.min.css" rel="stylesheet" />
+}
+<style>
+    #detalle-articulo input{
+        min-width: 80px;
+    }
+
+    .dt-buttons {
+        top: 195px !important;
+        position: initial !important;
+    }
+
+</style>
+<!-- Main content -->
+@Html.Partial("_tituloPaginas")
+<section class="content">
+    <div class="row">
+        <div class="col-lg-12 pinpin">
+            <div class="card" data-sortable="true">
+                <div class="card-header">
+                    <div class="card-title custom_title m-0">
+                        <div class="btn-group buttonexport d-flex" role="group">
+                            <h4>Listado de Facturas</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <input type="text" placeholder="" id="txtSiCambio" value="1" class="form-control oculto">
+                    <div class="card caja-filtro oculto" data-sortable="true">
+                        <div class="card-body">
+                            <div class="row form-group">
+
+                                <div class="form-group col-xs-12 col-sm-12 col-md-8 col-lg-9 col-xl-9">
+                                    <label class="">Descripción:</label>
+                                    <div class="">
+                                        <input type="text" onchange="CambioFiltro()" placeholder="" id="txtDescripcionFiltro" class="form-control text-uppercase">
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                                    <div class="" style="padding-top: 25px;">
+                                        <button type="button" onclick="ActualizarFiltro()" id="btnFiltrar" class="btn btn-labeled btn-add btn-sm">
+                                            <span class="spinner-border spinner-border-sm spinner_cargando hide" style="display: none;" role="status" aria-hidden="true"></span>
+                                            <span class="label_cargando hide" style="display: none;">Loading...</span>
+                                            <span class="label_bnormal"><span class="btn-label"><i class="fa fa-filter"></i></span> Filtrar</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
+                    <div class="btn-group d-flex boton-agregar" role="group">
+                        <div class="buttonexport" id="buttonlist">
+                            <a class="btn btn-add" href="#" onclick="generarFactura.NuevaFactura()" data-toggle="modal" data-target="#pant-factura">
+                                <i class="fa fa-plus"></i> Nuevo
+                            </a>
+                        </div>
+                    </div>
+                    <!-- ./Plugin content:powerpoint,txt,pdf,png,word,xl
+
+                                       <div class="input-group">
+                                           <div class="input-group-prepend" id="content-filtro">
+                                               <div class="input-group-text" id="btnBuscar"><span class="pe-7s-search"></span></div>
+                                           </div>
+                                           <input type="text" class="form-control" placeholder="Buscar..." aria-label="Input group example" aria-describedby="btnGroupAddon">
+                                       </div>
+                    -->
+                    <div class="row">
+                        <div class="table-responsive">
+                            <table id="dataTable-ventas" class="table display table-bordered table-striped table-hover no-wrap">
+                                <thead class="back_table_color">
+                                    <tr>
+                                        <th>Factura</th>
+                                        <th>Fecha</th>
+                                        <th>Cliente</th>
+                                        <th>Condición</th>
+                                        <th class="text-right">Descuento</th>
+                                        <th class="text-right">ITBIS</th>
+                                        <th class="text-right">%Ley</th>
+                                        <th class="text-right">Total</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                                <tfoot>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    @Html.Partial("_pant_Factura")
+
+
+    @Html.Partial("_buscar_Articulo")
+
+    <!-- Modal -->
+    <!-- Customer Modal2 -->
+    <div class="modal fade" id="customer2"  role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header modal-header-primary">
+                    <h3><i class="fa fa-user m-r-5"></i> Delete Customer</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <div class="col-md-12 form-group user-form-group">
+                                        <label class="control-label">Delete Customer</label>
+                                        <div class="float-right">
+                                            <button type="button" class="btn btn-danger btn-sm">NO</button>
+                                            <button type="submit" class="btn btn-add btn-sm">YES</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger float-left" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</section>
+<!-- /.content -->
+<!-- Dashboard js -->
+<!-- table-export js -->
+<script src="assets/plugins/table-export/tableExport.js"></script>
+<script src="assets/plugins/table-export/jquery.base64.js"></script>
+<script src="assets/plugins/table-export/html2canvas.js"></script>
+<script src="assets/plugins/table-export/sprintf.js"></script>
+<script src="assets/plugins/table-export/jspdf.js"></script>
+<script src="assets/plugins/table-export/base64.js"></script>
+
+<!-- dataTables js -->
+<script src="~/assets/dist/js/datatables.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+
+<!-- Notification js -->
+<script src="assets/plugins/NotificationStyles/js/modernizr.custom.js"></script>
+<script src="assets/plugins/NotificationStyles/js/classie.js"></script>
+<script src="assets/plugins/NotificationStyles/js/notificationFx.js"></script>
+<script src="assets/plugins/NotificationStyles/js/snap.svg-min.js"></script>
+@section Scripts{
+
+    <script src="~/assets/dist/js/select2.js"></script>
+    <script asp-append-version="true" src="~/assets/dist/js/listadoFactura.js"></script>
+    <script asp-append-version="true" src="~/assets/dist/js/factura.js"></script>
+    <script asp-append-version="true" src="~/assets/dist/js/buscarArticulos.js"></script>
+<script>
+    $(".op-menu").removeClass('active');
+        $("#group-facturacion,#op-mat-facturas").addClass('active');
+</script>
+ }

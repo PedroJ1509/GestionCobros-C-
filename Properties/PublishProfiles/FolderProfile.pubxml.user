@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>E:\JaMPe Soft\JaMPe-Proyect\JaMPe-Web\JaMPeApp\bin\Release\net6.0\publish\</_PublishTargetUrl>
+    <History>True|2024-02-29T03:12:29.2443845Z;True|2024-02-28T22:59:29.4018067-04:00;True|2024-02-28T15:20:50.0542517-04:00;True|2024-02-25T08:43:18.7495136-04:00;True|2024-02-24T20:31:18.7545049-04:00;True|2024-02-23T08:57:59.0866488-04:00;True|2024-02-22T17:28:00.8969947-04:00;True|2024-02-22T14:55:34.4956458-04:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

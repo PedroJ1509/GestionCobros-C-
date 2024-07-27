@@ -1,0 +1,270 @@
+﻿<!-- ADD Modal1 -->
+<div class="modal fade" id="formulario" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header modal-header-primary">
+                <h3>Autoridad</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form class="form-horizontal">
+                            <input type="text" id="txtAutoridadId" value="0" placeholder="" class="oculto">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <div class="row form-group">
+                                        <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">Descripción:</label>
+                                        <div class="col-xs-6 col-sm-6 col-md-5 col-lg-9 col-xl-9 p-0">
+                                            <input type="text" data-sigfocus="txtClienteDireccion" id="txtDescripcion" placeholder="" class="form-control">
+                                            <div class="invalid-feedback">
+                                                <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">Pantalla:</label>
+                                        <div class="col-xs-6 col-sm-6 col-md-5 col-lg-9 col-xl-9 p-0">
+                                            <select data-sigfocus="btnGuardar" id="cmbPantalla" class="form-control">
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="mantAutoridad.Cancelar()" class="btn btn-labeled btn-danger btn-sm"><span class="btn-label"><i class="fa fa-times"></i></span>Cancelar</button>
+                <button type="button" onclick="mantAutoridad.Guardar()" id="btnGuardar" class="btn btn-labeled btn-add btn-sm">
+                    <span class="spinner-border spinner-border-sm spinner_cargando hide" style="display: none;" role="status" aria-hidden="true"></span>
+                    <span class="label_cargando hide" style="display: none;">Loading...</span>
+                    <span class="label_bnormal"><span class="btn-label"><i class="fa fa-check"></i></span>Guardar</span>
+                </button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="modal-asignar-almacen" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header modal-header-primary">
+                <h3>Asignar almacen</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <h4 id="lblAlmacenDesc" class=" font_customm-t-20 text-center">AlmacenDesc</h4>
+                <br />
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12 pinpin">
+                        <div class="card " data-sortable="true">
+                            <div class="card-header">
+                                <h5>Almacenes no asignados</h5>
+                            </div>
+                            <div class="card-body font_customm">
+                                <div class="dd" id="almacenesNoAsiganados">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 pinpin">
+                        <div class="card" data-sortable="true">
+                            <div class="card-header">
+                                <h5>Almacenes asignados</h5>
+                            </div>
+                            <div class="card-body font_customm">
+
+                                <div class="dd" id="almacenesAsiganados">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="modal-asignar-pantalla" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header modal-header-primary">
+                <h3>Asignar almacen</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <h4 id="lblPantallaDesc" class=" font_customm-t-20 text-center"></h4>
+                <br />
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12 pinpin">
+                        <div class="card " data-sortable="true">
+                            <div class="card-header">
+                                <h5>Pantallas no asignados</h5>
+                            </div>
+                            <div class="card-body font_customm">
+                                <div class="dd" id="pantallasNoAsiganados">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 pinpin">
+                        <div class="card" data-sortable="true">
+                            <div class="card-header">
+                                <h5>Pantallas asignados</h5>
+                            </div>
+                            <div class="card-body font_customm">
+
+                                <div class="dd" id="pantallasAsiganados">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="modal-asignar-departamento" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header modal-header-primary">
+                <h3>Asignar departamento</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <h4 id="lblDepartamentoDesc" class=" font_customm-t-20 text-center"></h4>
+                <br />
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12 pinpin">
+                        <div class="card " data-sortable="true">
+                            <div class="card-header">
+                                <h5>Departamentos no asignados</h5>
+                            </div>
+                            <div class="card-body font_customm">
+                                <div class="dd" id="departamentosNoAsiganados">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 pinpin">
+                        <div class="card" data-sortable="true">
+                            <div class="card-header">
+                                <h5>Departamentos asignados</h5>
+                            </div>
+                            <div class="card-body font_customm">
+
+                                <div class="dd" id="departamentosAsiganados">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="modal-asignar-privilegio" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header modal-header-primary">
+                <h3>Asignar privilegio</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <h4 id="lblPrivilegioDesc" class=" font_customm-t-20 text-center"></h4>
+                <br />
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12 pinpin">
+                        <div class="card " data-sortable="true">
+                            <div class="card-header">
+                                <h5>Privilegio no asignados</h5>
+                            </div>
+                            <div class="card-body font_customm">
+                                <div class="dd" id="privilegiosNoAsiganados">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 pinpin">
+                        <div class="card" data-sortable="true">
+                            <div class="card-header">
+                                <h5>Privilegios asignados</h5>
+                            </div>
+                            <div class="card-body font_customm">
+
+                                <div class="dd" id="privilegiosAsiganados">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="modal-asignar-reporte" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header modal-header-primary">
+                <h3>Asignar reporte</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <h4 id="lblReporteDesc" class=" font_customm-t-20 text-center"></h4>
+                <br />
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12 pinpin">
+                        <div class="card " data-sortable="true">
+                            <div class="card-header">
+                                <h5>Reportes no asignados</h5>
+                            </div>
+                            <div class="card-body font_customm">
+                                <div class="dd" id="reportesNoAsiganados">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 pinpin">
+                        <div class="card" data-sortable="true">
+                            <div class="card-header">
+                                <h5>Reportes asignados</h5>
+                            </div>
+                            <div class="card-body font_customm">
+
+                                <div class="dd" id="reportesAsiganados">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

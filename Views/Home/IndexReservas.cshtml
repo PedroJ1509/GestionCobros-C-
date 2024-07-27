@@ -1,0 +1,174 @@
+﻿@{
+    ViewData["titulo"] = "Reservas";
+    ViewData["titulo-info"] = "";
+}
+
+@section Style{
+    <!-- fullcalendar css -->
+    <link href="assets/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" />
+    <!-- fullcalendar print css -->
+    <link href="assets/plugins/fullcalendar/fullcalendar.print.min.css" rel="stylesheet" media='print' />
+    <link href="~/assets/dist/css/select2.min.css" rel="stylesheet" />
+}
+
+<section class="content">
+    <input type="text" id="txtHabitacionId" value="0" placeholder="" class="oculto">
+
+    <div class="row">
+        <div class="col-lg-12 pinpin">
+            <div class="card lobicard lobicard-custom-control" data-sortable="true">
+                <div class="card-header">
+                    <div class="card-title custom_title">
+                        <a href="#">
+                            <h4>Disponibilidad de Habitaciones</h4>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div id="content-habitaciones" class="card-body p-0">
+                                    <div class="nav flex-column nav-pills border_table habitaciones" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tab panels -->
+                        <div class="col-md-9">
+                            <div class="card">
+                                <div class="card-body">
+                                    <!-- calender -->
+                                    <div id='calendar-reservas'></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- add Modal1 -->
+    <div class="modal fade" data-backdrop="static" id="add-reserva" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fa fa-calendar-plus-o m-r-5"></i> Reservas</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="form-horizontal">
+                                <input type="text" id="txtReservaId" value="0" placeholder="" class="oculto">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                        <div class="row form-group">
+                                            <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">Fecha:</label>
+                                            <div class="col-xs-6 col-sm-6 col-md-8 col-lg-3 col-xl-3 p-0">
+                                                <input type="text" data-sigfocus="txtFechaHasta" id="txtFechaDesde" placeholder="" class="form-control">
+                                                <div class="invalid-feedback">
+                                                    <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                                </div>
+                                            </div>
+                                            <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-2 col-xl-2">Hasta:</label>
+                                            <div class="col-xs-6 col-sm-6 col-md-8 col-lg-3 col-xl-3 p-0">
+                                                <input type="text" data-sigfocus="cmbCliente" id="txtFechaHasta" placeholder="" class="form-control">
+                                                <div class="invalid-feedback">
+                                                    <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">Habitación:</label>
+                                            <div class="col-xs-6 col-sm-6 col-md-8 col-lg-8 col-xl-8 p-0">
+                                                <select onchange="reservas.BuscarTarifa()" data-sigfocus="btnGuardar" id="cmbHabitacion" class="form-control">
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <label id="label-cliente" onclick="reservas.AbrirCliente()" class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">Cliente:</label>
+                                            <div class="col-xs-6 col-sm-6 col-md-8 col-lg-8 col-xl-8 p-0">
+                                                <select onchange="reservas.BuscarTarifa()" data-sigfocus="cmbPlan" id="cmbCliente" class="form-control">
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">Plan:</label>
+                                            <div class="col-xs-6 col-sm-6 col-md-8 col-lg-8 col-xl-8 p-0">
+                                                <select onchange="reservas.BuscarTarifa()" data-sigfocus="cmbTipoHospedaje" id="cmbPlan" class="form-control">
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">Tipo Hospedaje:</label>
+                                            <div class="col-xs-6 col-sm-6 col-md-8 col-lg-8 col-xl-8 p-0">
+                                                <select onchange="reservas.BuscarTarifa()" data-sigfocus="txtPrecio" id="cmbTipoHospedaje" class="form-control">
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <label class="control-label col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">Precio:</label>
+                                            <div class="col-xs-6 col-sm-6 col-md-8 col-lg-8 col-xl-8 p-0">
+                                                <input type="text" data-sigfocus="btnGuardar" placeholder="" readonly maxlength="13" id="txtPrecio" class="form-control">
+                                                <div class="invalid-feedback">
+                                                    <span data-labelidioma="label_form_formulario_error" class="label-idioma">Debe completar este campo.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="reservas.Anular()" id="btnAnularReservas" class="btn btn-labeled btn-warning btn-sm oculto">
+                        <span class="spinner-border spinner-border-sm spinner_cargando hide" style="display: none;" role="status" aria-hidden="true"></span>
+                        <span class="label_cargando hide" style="display: none;">Loading...</span>
+                        <span class="label_bnormal"><span class="btn-label"><i class="fa fa-ban"></i></span> Anular</span>
+                    </button>
+                    <button type="button" onclick="reservas.Cancelar()" class="btn btn-labeled btn-danger btn-sm"><span class="btn-label"><i class="fa fa-times"></i></span>Cancelar</button>
+                    <button type="button" onclick="reservas.Guardar()" id="btnGuardarReservas" class="btn btn-labeled btn-add btn-sm">
+                        <span class="spinner-border spinner-border-sm spinner_cargando hide" style="display: none;" role="status" aria-hidden="true"></span>
+                        <span class="label_cargando hide" style="display: none;">Loading...</span>
+                        <span class="label_bnormal"><span class="btn-label"><i class="fa fa-check"></i></span> Guardar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <!-- Update Modal1 -->
+
+</section>
+@Html.Partial("_mant_Cliente")
+
+@section Scripts{
+    <!-- fullcalendar js -->
+    <script src="assets/plugins/fullcalendar/lib/moment.min.js"></script>
+    <script src="assets/plugins/fullcalendar/fullcalendar.min.js"></script>
+    <script src="~/assets/dist/js/select2.js"></script>
+
+    <script asp-append-version="true" src="~/assets/dist/js/reservas.js"></script>
+    <!-- End Page Lavel Plugins-->
+    <script>
+        $(".op-menu").removeClass('active');
+        $("#op-reservas").addClass('active');
+    </script>
+}
