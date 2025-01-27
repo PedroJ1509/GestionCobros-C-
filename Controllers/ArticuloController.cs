@@ -259,7 +259,7 @@ namespace JaMPeApp.Controllers
                     costo = Convert.ToDecimal(compraDet.CompraPrecio * Convert.ToDecimal(articuloUnidad.ArticuloUnidadRatio)).ToString("0,0.0", CultureInfo.InvariantCulture)
                 }
             );
-            result = await query.OrderByDescending(x => x.fecha).ToListAsync();
+            result = await query.OrderByDescending(x => x.fecha).Take(10).ToListAsync();
 
             return result;
         }
@@ -363,7 +363,7 @@ namespace JaMPeApp.Controllers
                 if ((general.GeneralUltimoArticulo+1).ToString() == model.ArticuloCd.ToString())
                 {
                     general.GeneralUltimoArticulo = general.GeneralUltimoArticulo + 1;
-                    context.Generals.Update(general);
+                    context.Update(general);
                     await context.SaveChangesAsync();
                 }
 
@@ -398,6 +398,14 @@ namespace JaMPeApp.Controllers
                 newArticulo.ArticuloSiPeso = model.ArticuloSiPeso;
                 context.Add(newArticulo);
                 await context.SaveChangesAsync();
+
+                //var GuardarArticuloUnid = GuardarArticuloUnidad(newArticulo.ArticuloId, Convert.ToInt32(model.UnidadId), 1);
+
+                //var GuardarArticuloP = GuardarArticuloPrecio(newArticulo.ArticuloId, Convert.ToInt16(general.GeneralCantPrecios));
+
+                //var GuardarArticuloAlm = GuardarArticuloAlmacen(newArticulo.ArticuloId, model.ArticuloExistencia);
+
+                //await Task.WhenAll(GuardarArticuloUnid, GuardarArticuloP, GuardarArticuloAlm);
 
                 ArticuloUnidad articulounidad = new ArticuloUnidad();
                 articulounidad.ArticuloId = newArticulo.ArticuloId;
@@ -451,17 +459,77 @@ namespace JaMPeApp.Controllers
                 }
 
 
-                var articuloAlmacen = await context.ArticuloAlmacens.Where(x => x.AlmacenId == Convert.ToInt32(almacenId)).FirstOrDefaultAsync();
-                articuloAlmacen.ArticuloAlmacenExistencia = model.ArticuloExistencia;
-                context.Update(articuloAlmacen);
-                await context.SaveChangesAsync();
-
                 return Ok(newArticulo);
             }
             catch (Exception)
             {
                 return NotFound();
             }
+        }
+        private async Task GuardarArticuloUnidad(int articuloId, int unidadId, float ratio)
+        {
+            ArticuloUnidad articuloUnidad = new ArticuloUnidad();
+            articuloUnidad.ArticuloId = articuloId;
+            articuloUnidad.UnidadId = unidadId;
+            articuloUnidad.ArticuloUnidadRatio = ratio;
+            context.Add(articuloUnidad);
+            await context.SaveChangesAsync();
+        }
+        private async Task GuardarArticuloPrecio(int articuloId, int cantidadPrecios)
+        {
+            List<Precio> listPrecio = await context.Precios.Where(x => x.ArticuloId == articuloId).ToListAsync();
+
+            int nPrecio = listPrecio.Count();
+
+            while (nPrecio < Convert.ToInt16(cantidadPrecios))
+            {
+                Precio newPrecio = new Precio();
+                newPrecio.ArticuloId = articuloId;
+                newPrecio.PrecioNo = nPrecio + 1;
+                newPrecio.PrecioMonto = 0;
+                newPrecio.PrecioGanancia = 0;
+                newPrecio.PrecioComision = 0;
+                newPrecio.PrecioCodigo = "";
+                context.Add(newPrecio);
+                await context.SaveChangesAsync();
+                nPrecio++;
+            }
+        }
+        private async Task GuardarArticuloAlmacen(int articuloId,  double? existencia)
+        {
+            List<int> listAlmacen = await context.ArticuloAlmacens.Where(x => x.ArticuloId == articuloId).Select(x => x.ArticuloId).ToListAsync();
+
+            List<Almacen> almacenes = await context.Almacens.Where(x => !listAlmacen.Contains(x.AlmacenId)).ToListAsync();
+
+
+            var identity = User.Claims.Where(x => x.Type == "Almacen_ID").FirstOrDefault();
+            var almacenId = identity.Value;
+
+            foreach (var almacen in almacenes)
+            {
+                double? existenciaArt = 0;
+                if (Convert.ToInt32(almacenId) == almacen.AlmacenId)
+                {
+                    existenciaArt = existencia;
+                }
+                ArticuloAlmacen articuloAlmn = new ArticuloAlmacen();
+                articuloAlmn.ArticuloId = articuloId;
+                articuloAlmn.AlmacenId = almacen.AlmacenId;
+                articuloAlmn.ArticuloAlmacenExistencia = existenciaArt;
+                articuloAlmn.ArticuloAlmacenCantMaxima = 0;
+                articuloAlmn.ArticuloAlmacenCantReOrden = 0;
+                articuloAlmn.ArticuloAlmacenUbicacion = "";
+                context.Add(articuloAlmn);
+                await context.SaveChangesAsync();
+
+            }
+
+
+            var articuloAlmacen = await context.ArticuloAlmacens.Where(x => x.AlmacenId == Convert.ToInt32(almacenId)).FirstOrDefaultAsync();
+            articuloAlmacen.ArticuloAlmacenExistencia = existencia;
+            context.Update(articuloAlmacen);
+            await context.SaveChangesAsync();
+
         }
         [HttpPost("CambiarPrecioArticulo")]
         public async Task<ActionResult> CambiarPrecioArticulo(precioArticuloDTO model)

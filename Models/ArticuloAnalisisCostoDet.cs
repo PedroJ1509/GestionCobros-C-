@@ -14,7 +14,7 @@ namespace JaMPeApp.Models
         public double? CantSolic { get; set; }
         public double? CostoSolic { get; set; }
         public double? Existencia { get; set; }
-        public double? CostoExistecia { get; set; }
+        //public double? CostoExistecia { get; set; }
         public double? Faltante { get; set; }
         public double? CostoFalt { get; set; }
         public bool? SiPedido { get; set; }

@@ -31,7 +31,6 @@ namespace JaMPeApp.Models
         public int? OrdenCompraId { get; set; }
         public int? AlmacenId { get; set; }
         public string? CompraComentario { get; set; }
-        public byte[]? UpsizeTs { get; set; }
         public bool? ProveedorInformar { get; set; }
 
         public virtual ICollection<ChequeCompra> ChequeCompras { get; set; }

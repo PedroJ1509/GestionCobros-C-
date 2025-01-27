@@ -50,8 +50,6 @@ BuscarDatosFiltro = function() {
                                     <td>${currentValue.fecha}</td>
                                     <td>${currentValue.codigoDesc}</td>
                                     <td>${currentValue.cantidadTotal}</td>
-                                    <td>${currentValue.totalCosto}</td>
-                                    <td>${currentValue.costoUnidad}</td>
                                     <td>${currentValue.precio}</td>
                                     <td>${elementoEstado}</td>
                                     <td>
@@ -62,7 +60,8 @@ BuscarDatosFiltro = function() {
                                     </td>
                                 </tr>`
         });
-        
+        $("#dataTable tbody").html(dataHtml);
+
         InicializarTablaSinFiltro();
 
         $("#txtSiCambio").val("0");

@@ -34,7 +34,6 @@ namespace JaMPeApp.Models
         public short? ArticuloGananciaMinima { get; set; }
         public bool ArticuloSiVencimiento { get; set; }
         public bool ArticuloSiComanda { get; set; }
-        public byte[]? UpsizeTs { get; set; }
         public string? ArticuloIdArt { get; set; }
         public string? ArticuloImgRuta { get; set; }
         public bool? ArticuloSiFactNegativo { get; set; }

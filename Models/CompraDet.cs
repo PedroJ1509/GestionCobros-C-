@@ -19,7 +19,6 @@ namespace JaMPeApp.Models
         public int? CompraDetNo { get; set; }
         public decimal? CompraDetMontoGp { get; set; }
         public int? UnidadId { get; set; }
-        public byte[]? UpsizeTs { get; set; }
         public DateTime? ArticuloFechaVenc { get; set; }
 
         public virtual Articulo? Articulo { get; set; }

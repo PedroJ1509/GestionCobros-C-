@@ -20,22 +20,7 @@
             </a>
         </li>
         </li>
-        <li class='treeview op-menu' id="group-facturacion">
-            <a href="#">
-                <i class="fa fa-archive"></i><span>Facturación</span>
-                <span class="pull-right-container">
-                    <i class="fa fa-angle-left float-right"></i>
-                    </span></a>
-            <ul class="treeview-menu">
-                @foreach (PantallaAutoridad pantalla in pantallas)
-                {
-                    if (pantalla.PantallaId == 6)
-                    {
-                        <li class="op-menu" id="op-mat-facturas"><a asp-area="" asp-controller="Home" asp-action="Facturas">Factura</a></li>
-                    }
-                }
-            </ul>
-        </li>
+
         <li class='treeview op-menu' id="group-procesos">
             <a href="#">
                 <i class="fa fa-archive"></i><span>Procesos</span>
@@ -45,13 +30,6 @@
             </a>
             <ul class="treeview-menu">
                 <li class="op-menu" id="op-pro-analisiscosto"><a asp-area="" asp-controller="Home" asp-action="IndexAnalisisCosto">Análisis de Costo</a></li>
-                @foreach (PantallaAutoridad pantalla in pantallas)
-                {
-                    if (pantalla.PantallaId == 66)
-                    {
-                        <li class="op-menu" id="op-pro-ordencompra"><a asp-area="" asp-controller="Home" asp-action="IndexOrdenCompra">Orden de Compra</a></li>
-                    }
-                }
             </ul>
         </li>
         @if (Generales.GeneralSiHotel == true)
@@ -71,48 +49,7 @@
             </a>
         </li>
         }
-        <li class='treeview op-menu' id="group-consulta">
-            <a href="#">
-                <i class="fa fa-gear"></i><span>Cosultas</span>
-                <span class="pull-right-container">
-                    <i class="fa fa-angle-left float-right"></i>
-                </span>
-            </a>
-            <ul class="treeview-menu">
-                @foreach (var pantalla in pantallas)
-                {
-                    if (pantalla.PantallaId == 169)
-                    {
-                        <li class="op-menu" id="op-mat-consultaventas"><a asp-area="" asp-controller="" asp-action="ConsultaVentas">Ventas</a></li>
-                    }
-                    if (pantalla.PantallaId == 75)
-                    {
-                        <li class="op-menu" id="op-mat-consultainventario"><a asp-area="" asp-controller="" asp-action="ConsultaInv">Inventario</a></li>
-                    }
-                    if (pantalla.PantallaId == 85)
-                    {
-                        <li class="op-menu" id="op-mat-consultaventasporarticulo"><a asp-area="" asp-controller="" asp-action="ConsultaVentasArticulos">Ventas por artículo</a></li>
-                    }
-                }
-            </ul>
-        </li>
-        <li class='treeview op-menu' id="group-inventario">
-            <a href="#">
-                <i class="fa fa-gear"></i><span>Inventario</span>
-                <span class="pull-right-container">
-                    <i class="fa fa-angle-left float-right"></i>
-                </span>
-            </a>
-            <ul class="treeview-menu">
-                @foreach (var pantalla in pantallas)
-                {
-                    if (pantalla.PantallaId == 11)
-                    {
-                        <li class="op-menu" id="op-mat-articulo"><a asp-area="" asp-controller="Home" asp-action="IndexArticulo">Artículo</a></li>
-                    }
-                }
-            </ul>
-        </li>
+
         <li class='treeview op-menu' id="group-mantenimiento">
             <a href="#">
                 <i class="fa fa-gear"></i><span>Mantenimientos</span>
@@ -131,66 +68,17 @@
                     {
                         <li class="op-menu" id="op-mat-cliente"><a asp-area="" asp-controller="Home" asp-action="IndexCliente">Cliente</a></li>
                     }
-                    else if (pantalla.PantallaId == 22)
-                    {
-                        <li class="op-menu" id="op-mat-vendedor"><a asp-area="" asp-controller="Home" asp-action="IndexVendedor">Vendedor</a></li>
-                    }
-                    else if (pantalla.PantallaId == 69)
-                    {
-                        <li class="op-menu" id="op-mat-tipocliente"><a asp-area="" asp-controller="Home" asp-action="IndexTipoCliente">Tipo Cliente</a></li>
-                    }
-                    else if (pantalla.PantallaId == 143)
-                    {
-                        <li class="op-menu" id="op-mat-plan"><a asp-area="" asp-controller="Home" asp-action="IndexPlan">Plan</a></li>
-                    }
-                    else if (pantalla.PantallaId == 139 && Generales.GeneralSiHotel == true)
-                    {
-                        <li class="op-menu" id="op-mat-planta"><a asp-area="" asp-controller="Home" asp-action="IndexPlanta">Planta</a></li>
-                    }
-                    else if (pantalla.PantallaId == 141 && Generales.GeneralSiHotel == true)
-                    {
-                        <li class="op-menu" id="op-mat-tipohabitacion"><a asp-area="" asp-controller="Home" asp-action="IndexTipoHabitacion">Tipo Habitación</a></li>
-                    }
-                    else if (pantalla.PantallaId == 144 && Generales.GeneralSiHotel == true)
-                    {
-                        <li class="op-menu" id="op-mat-tipohospedaje"><a asp-area="" asp-controller="Home" asp-action="IndexTipoHospedaje">Tipo Hospedaje</a></li>
-                    }
-                    else if (pantalla.PantallaId == 140 && Generales.GeneralSiHotel == true)
-                    {
-                        <li class="op-menu" id="op-mat-habitacion"><a asp-area="" asp-controller="Home" asp-action="IndexHabitacion">Habitación</a></li>
-                    }
-                    else if (pantalla.PantallaId == 145 && Generales.GeneralSiHotel == true)
-                    {
-                        <li class="op-menu" id="op-mat-tarifa"><a asp-area="" asp-controller="Home" asp-action="IndexTarifa">Tarifa</a></li>
-                    }
-                    else if (pantalla.PantallaId == 162)
-                    {
-                        <li class="op-menu" id="op-mat-sala"><a asp-area="" asp-controller="Home" asp-action="IndexSala">Sala</a></li>
-                    }
-                    else if (pantalla.PantallaId == 163)
-                    {
-                        <li class="op-menu" id="op-mat-mesa"><a asp-area="" asp-controller="Home" asp-action="IndexMesa">Mesa</a></li>
-                    }
+                   
                     else if (pantalla.PantallaId == 21)
                     {
                         <li class="op-menu" id="op-mat-unidad"><a asp-area="" asp-controller="Home" asp-action="IndexUnidad">Unidad</a></li>
                     }
-                    else if (pantalla.PantallaId == 24)
-                    {
-                        <li class="op-menu" id="op-mat-autoridad"><a asp-area="" asp-controller="Home" asp-action="IndexAutoridad">Autoridad</a></li>
-                    }
+                   
                     else if (pantalla.PantallaId == 50)
                     {
                         <li class="op-menu" id="op-mat-usuario"><a asp-area="" asp-controller="Home" asp-action="IndexUsuario">Usuario</a></li>
                     }
                 }
-
-
-
-
-
-
-
 
 
             </ul>

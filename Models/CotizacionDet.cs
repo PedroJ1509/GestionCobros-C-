@@ -16,7 +16,6 @@ namespace JaMPeApp.Models
         public int? UnidadId { get; set; }
         public int? OrdenProduccionId { get; set; }
         public int? CotizacionDetNo { get; set; }
-        public byte[]? UpsizeTs { get; set; }
 
         public virtual Cotizacion Cotizacion { get; set; } = null!;
     }

@@ -541,10 +541,6 @@ namespace JaMPeApp.Models
 
                 entity.Property(e => e.UnidadId).HasColumnName("Unidad_ID");
 
-                entity.Property(e => e.UpsizeTs)
-                    .IsRowVersion()
-                    .IsConcurrencyToken()
-                    .HasColumnName("upsize_ts");
             });
 
             modelBuilder.Entity<ArticuloAlmacen>(entity =>
@@ -573,10 +569,7 @@ namespace JaMPeApp.Models
                     .HasMaxLength(50)
                     .HasColumnName("ArticuloAlmacen_Ubicacion");
 
-                entity.Property(e => e.UpsizeTs)
-                    .IsRowVersion()
-                    .IsConcurrencyToken()
-                    .HasColumnName("upsize_ts");
+               
             });
 
             modelBuilder.Entity<ArticuloAnalisisCosto>(entity =>
@@ -674,10 +667,6 @@ namespace JaMPeApp.Models
 
                 entity.Property(e => e.UnidadId).HasColumnName("Unidad_ID");
 
-                entity.Property(e => e.UpsizeTs)
-                    .IsRowVersion()
-                    .IsConcurrencyToken()
-                    .HasColumnName("upsize_ts");
 
                 entity.HasOne(d => d.Unidad)
                     .WithMany(p => p.ArticuloPorKits)
@@ -710,10 +699,6 @@ namespace JaMPeApp.Models
                     .HasColumnName("ArticuloSugerido_Cant")
                     .HasDefaultValueSql("((0))");
 
-                entity.Property(e => e.UpsizeTs)
-                    .IsRowVersion()
-                    .IsConcurrencyToken()
-                    .HasColumnName("upsize_ts");
             });
 
             modelBuilder.Entity<ArticuloUnidad>(entity =>
@@ -734,10 +719,6 @@ namespace JaMPeApp.Models
 
                 entity.Property(e => e.ArticuloUnidadRatio).HasColumnName("ArticuloUnidad_Ratio");
 
-                entity.Property(e => e.UpsizeTs)
-                    .IsRowVersion()
-                    .IsConcurrencyToken()
-                    .HasColumnName("upsize_ts");
             });
 
             modelBuilder.Entity<AuditoriaFactura>(entity =>
@@ -2038,10 +2019,7 @@ namespace JaMPeApp.Models
                     .HasColumnName("Suplidor_ID")
                     .HasDefaultValueSql("((0))");
 
-                entity.Property(e => e.UpsizeTs)
-                    .IsRowVersion()
-                    .IsConcurrencyToken()
-                    .HasColumnName("upsize_ts");
+
             });
 
             modelBuilder.Entity<CompraDet>(entity =>
@@ -2119,10 +2097,7 @@ namespace JaMPeApp.Models
 
                 entity.Property(e => e.UnidadId).HasColumnName("Unidad_ID");
 
-                entity.Property(e => e.UpsizeTs)
-                    .IsRowVersion()
-                    .IsConcurrencyToken()
-                    .HasColumnName("upsize_ts");
+
 
                 entity.HasOne(d => d.Articulo)
                     .WithMany(p => p.CompraDets)
@@ -2502,10 +2477,7 @@ namespace JaMPeApp.Models
 
                 entity.Property(e => e.UnidadId).HasColumnName("Unidad_ID");
 
-                entity.Property(e => e.UpsizeTs)
-                    .IsRowVersion()
-                    .IsConcurrencyToken()
-                    .HasColumnName("upsize_ts");
+
 
                 entity.HasOne(d => d.Cotizacion)
                     .WithMany(p => p.CotizacionDets)
@@ -3028,10 +3000,7 @@ namespace JaMPeApp.Models
 
                 entity.Property(e => e.FacturaDetId).HasColumnName("FacturaDet_ID");
 
-                entity.Property(e => e.UpsizeTs)
-                    .IsRowVersion()
-                    .IsConcurrencyToken()
-                    .HasColumnName("upsize_ts");
+
 
                 entity.HasOne(d => d.FacturaDet)
                     .WithMany(p => p.DespachoFacturas)
@@ -4045,7 +4014,9 @@ namespace JaMPeApp.Models
 
             modelBuilder.Entity<General>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.GeneralId)
+                    .HasName("PK_General")
+                    .IsClustered(false);
 
                 entity.ToTable("General");
 
@@ -5942,10 +5913,6 @@ namespace JaMPeApp.Models
 
                 entity.Property(e => e.PrecioNo).HasColumnName("Precio_No");
 
-                entity.Property(e => e.UpsizeTs)
-                    .IsRowVersion()
-                    .IsConcurrencyToken()
-                    .HasColumnName("upsize_ts");
             });
 
             modelBuilder.Entity<Prepago>(entity =>

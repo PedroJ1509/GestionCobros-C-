@@ -1,10 +1,17 @@
-﻿function analisisCostoDTO(AnalisisCostoId, AnalisisCostoNo, AnalisisCostoDesc, AnalisisCostoEstatus, SalaId, SalaDesc) {
-    this.AnalisisCostoId = AnalisisCostoId;
-    this.AnalisisCostoNo = AnalisisCostoNo;
-    this.AnalisisCostoDesc = AnalisisCostoDesc;
-    this.AnalisisCostoEstatus = AnalisisCostoEstatus;
-    this.SalaId = SalaId;
-    this.SalaDesc = SalaDesc;
+﻿function analisisCostoDTO(ArticuloAnalisisCostoId, ArticuloId, TotalCosto, CostoUnd, Ganancia,Estado,Cantidad,TotalCostoExist,
+    TotalCostoFalt,LabelInfo1,LabelInfo2
+) {
+    this.ArticuloAnalisisCostoId = ArticuloAnalisisCostoId;
+    this.ArticuloId = ArticuloId;
+    this.TotalCosto = TotalCosto;
+    this.CostoUnd = CostoUnd;
+    this.Ganancia = Ganancia;
+    this.Estado = Estado;
+    this.Cantidad = Cantidad;
+    this.TotalCostoExist = TotalCostoExist;
+    this.TotalCostoFalt = TotalCostoFalt;
+    this.LabelInfo1 = LabelInfo1;
+    this.LabelInfo2 = LabelInfo2;
 }
 
 function AnalisisCosto(ventana, analisisCostoId, descripcion, sala, activo) {
@@ -387,10 +394,17 @@ function AnalisisCosto(ventana, analisisCostoId, descripcion, sala, activo) {
     this.Guardar = function () {
         if (self.Validar() == true) {
             DeshabilitarBottonCargar("#btnGuardar");
+            debugger;
             let analisisCosto = new analisisCostoDTO(
-                parseInt(self.analisisCostoId.val()), 0,
-                self.descripcion.val(), self.activo.prop('checked'), parseInt(self.sala.val()),
-                ""
+                parseInt(self.analisisCostoId.val()), 
+                parseInt($("#cmbArticulo").val()),
+                parseFloat($("#total-costos-ingred").text().replace(',','')),
+                parseFloat($("#total-casto-unidad").text().replace(',','')),
+                parseFloat($("#txtGanancia").val()),
+                true,
+                parseInt($("#txtCantidad").val()),
+                0,
+                parseFloat($("#total-costos-falt").text().replace(',','')),'',''
             );
             let type = "";
             let url = "AnalisisCosto";
@@ -403,7 +417,7 @@ function AnalisisCosto(ventana, analisisCostoId, descripcion, sala, activo) {
             PostAjax(url, "json", type, JSON.stringify(analisisCosto),
                 function (param) {
                     HabilitarBottonCargar("#btnGuardar");
-                    table.ajax.reload();
+                    ActualizarFiltro();
                     self.ventana.modal('hide');
                 },
                 function (error) {

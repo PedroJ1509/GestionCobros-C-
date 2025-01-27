@@ -9,6 +9,5 @@ namespace JaMPeApp.Models
         public int? ArticuloIdPadre { get; set; }
         public int? ArticuloIdHijo { get; set; }
         public float? ArticuloSugeridoCant { get; set; }
-        public byte[]? UpsizeTs { get; set; }
     }
 }

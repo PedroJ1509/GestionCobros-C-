@@ -11,6 +11,5 @@ namespace JaMPeApp.Models
         public double? ArticuloAlmacenCantMaxima { get; set; }
         public double? ArticuloAlmacenCantReOrden { get; set; }
         public string? ArticuloAlmacenUbicacion { get; set; }
-        public byte[]? UpsizeTs { get; set; }
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "s8pfhE7E158YwTDeqqRZ6/ttIWdXCukiMunRGCn9zVGNXfHSRbSPi6eqf8BcK+SB8ifajP2Ul19seixN3MGNyg==",
+  "dgSpecHash": "hD2L9Km/A0wQGOISkTJ4lveVZK84i3fHqdYekm1sSEoO3pCdb1lyAAXOHB5ak/Z7XTmW5lIhux9isbXc62A9/w==",
   "success": true,
-  "projectFilePath": "D:\\JaMPe Soft\\JaMPe-Proyect\\JaMPeApp\\JaMPeApp.csproj",
+  "projectFilePath": "D:\\JaMPe Soft\\GestionCobros\\JaMPeApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Pedro J\\.nuget\\packages\\efcore.sqlserver2008query\\6.0.0\\efcore.sqlserver2008query.6.0.0.nupkg.sha512",
     "C:\\Users\\Pedro J\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

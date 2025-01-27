@@ -9,243 +9,211 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = JaMPeApp
 build_property.RootNamespace = JaMPeApp
-build_property.ProjectDir = D:\JaMPe Soft\JaMPe-Proyect\JaMPeApp\
+build_property.ProjectDir = D:\JaMPe Soft\GestionCobros\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\JaMPe Soft\JaMPe-Proyect\JaMPeApp
+build_property.MSBuildProjectDirectory = D:\JaMPe Soft\GestionCobros
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/CheckIn/CheckInReport.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/CheckIn/CheckInReport.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tJblxDaGVja0luUmVwb3J0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Consulta/IndexConsultaVentas.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Consulta/IndexConsultaVentas.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc3VsdGFcSW5kZXhDb25zdWx0YVZlbnRhcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Consulta/IndexConsultaVentasPorArticulo.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Consulta/IndexConsultaVentasPorArticulo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc3VsdGFcSW5kZXhDb25zdWx0YVZlbnRhc1BvckFydGljdWxvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/EncriptarClaveUser.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/EncriptarClaveUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFbmNyaXB0YXJDbGF2ZVVzZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/Facturas.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/Facturas.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxGYWN0dXJhcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/Index.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/IndexAnalisisCosto.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/IndexAnalisisCosto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleEFuYWxpc2lzQ29zdG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/IndexArticulo.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/IndexArticulo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleEFydGljdWxvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/IndexAutoridad.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/IndexAutoridad.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleEF1dG9yaWRhZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/IndexCheckin.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/IndexCheckin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleENoZWNraW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/IndexCliente.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/IndexCliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleENsaWVudGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/IndexConsInventario.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/IndexConsInventario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleENvbnNJbnZlbnRhcmlvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/IndexDocumentoCheckIn.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/IndexDocumentoCheckIn.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleERvY3VtZW50b0NoZWNrSW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/IndexFactura.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/IndexFactura.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleEZhY3R1cmEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/IndexHabitacion.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/IndexHabitacion.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleEhhYml0YWNpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/IndexMesa.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/IndexMesa.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleE1lc2EuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/IndexOrdenCompra.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/IndexOrdenCompra.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleE9yZGVuQ29tcHJhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/IndexPlan.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/IndexPlan.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleFBsYW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/IndexPlanta.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/IndexPlanta.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleFBsYW50YS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/IndexReservas.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/IndexReservas.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleFJlc2VydmFzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/IndexSala.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/IndexSala.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleFNhbGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/IndexTarifa.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/IndexTarifa.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleFRhcmlmYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/IndexTipoCliente.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/IndexTipoCliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleFRpcG9DbGllbnRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/IndexTipoHabitacion.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/IndexTipoHabitacion.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleFRpcG9IYWJpdGFjaW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/IndexTipoHospedaje.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/IndexTipoHospedaje.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleFRpcG9Ib3NwZWRhamUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/IndexUnidad.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/IndexUnidad.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleFVuaWRhZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/IndexUsuario.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/IndexUsuario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleFVzdWFyaW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/IndexVendedor.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/IndexVendedor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleFZlbmRlZG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/login.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxsb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Home/Privacy.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/Error.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/_buscar_Articulo.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Shared/_buscar_Articulo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9idXNjYXJfQXJ0aWN1bG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/_Layout.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/_mant_Articulo.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Shared/_mant_Articulo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9tYW50X0FydGljdWxvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/_mant_Autoridad.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9tYW50X0F1dG9yaWRhZC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/_mant_Cliente.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Shared/_mant_Cliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9tYW50X0NsaWVudGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/_mant_CostoAnalisis.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Shared/_mant_CostoAnalisis.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9tYW50X0Nvc3RvQW5hbGlzaXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/_mant_Habitacion.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9tYW50X0hhYml0YWNpb24uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/_mant_Mesa.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9tYW50X01lc2EuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/_mant_Plan.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9tYW50X1BsYW4uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/_mant_Planta.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9tYW50X1BsYW50YS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/_mant_Sala.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Shared/_mant_Sala.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9tYW50X1NhbGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/_mant_Tarifa.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9tYW50X1RhcmlmYS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/_mant_TipoCliente.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Shared/_mant_TipoCliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9tYW50X1RpcG9DbGllbnRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/_mant_TipoHabitacion.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9tYW50X1RpcG9IYWJpdGFjaW9uLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/_mant_TipoHospedaje.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9tYW50X1RpcG9Ib3NwZWRhamUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/_mant_Unidad.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Shared/_mant_Unidad.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9tYW50X1VuaWRhZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/_mant_Usuario.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Shared/_mant_Usuario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9tYW50X1VzdWFyaW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/_mant_Vendedor.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Shared/_mant_Vendedor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9tYW50X1ZlbmRlZG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/_menuPrincipal.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Shared/_menuPrincipal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9tZW51UHJpbmNpcGFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/_paginacion.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Shared/_paginacion.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9wYWdpbmFjaW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/_pant_Factura - Copia.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Shared/_pant_Factura - Copia.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9wYW50X0ZhY3R1cmEgLSBDb3BpYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/_pant_Factura.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Shared/_pant_Factura.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9wYW50X0ZhY3R1cmEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/_pdf_viewer.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Shared/_pdf_viewer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9wZGZfdmlld2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/_tituloPaginas.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Shared/_tituloPaginas.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF90aXR1bG9QYWdpbmFzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/_ViewImports.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JaMPe Soft/JaMPe-Proyect/JaMPeApp/Views/_ViewStart.cshtml]
+[D:/JaMPe Soft/GestionCobros/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

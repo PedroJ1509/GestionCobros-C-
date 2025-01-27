@@ -12,6 +12,5 @@ namespace JaMPeApp.Models
         public float? PrecioGanancia { get; set; }
         public float? PrecioComision { get; set; }
         public string? PrecioCodigo { get; set; }
-        public byte[]? UpsizeTs { get; set; }
     }
 }

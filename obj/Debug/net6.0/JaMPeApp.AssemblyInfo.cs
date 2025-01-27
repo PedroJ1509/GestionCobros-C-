@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JaMPeApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ccb1be35a2dfb33d6cd5afe1fa197fb1222394e5")]
 [assembly: System.Reflection.AssemblyProductAttribute("JaMPeApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JaMPeApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

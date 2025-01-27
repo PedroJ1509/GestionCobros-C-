@@ -9,7 +9,6 @@ namespace JaMPeApp.Models
         public DateTime? DespachoFacturaFecha { get; set; }
         public int? FacturaDetId { get; set; }
         public float? FacturaDetCant { get; set; }
-        public byte[]? UpsizeTs { get; set; }
 
         public virtual FacturaDet? FacturaDet { get; set; }
     }

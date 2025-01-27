@@ -8,6 +8,5 @@ namespace JaMPeApp.Models
         public int ArticuloId { get; set; }
         public int UnidadId { get; set; }
         public float? ArticuloUnidadRatio { get; set; }
-        public byte[]? UpsizeTs { get; set; }
     }
 }
